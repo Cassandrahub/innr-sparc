@@ -16,7 +16,7 @@ exports.handler = async (event) => {
       attributes: {
         FIRSTNAME: firstName,
         LASTNAME:  lastName || '',
-        SMS:       phone || undefined
+        SMS: phone? '+63' + phone.replace(/^0/, '').replace(/\s+/g, '') : undefined
       },
       listIds:       [3],
       updateEnabled: true
