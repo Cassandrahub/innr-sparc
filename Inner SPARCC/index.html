@@ -617,14 +617,10 @@
     }
   }
 
-  function showSuccess(firstName) {
-    document.getElementById('modal-form-body').style.display = 'none';
-    document.getElementById('modal-header').style.display    = 'none';
-    document.getElementById('success-name').textContent      = firstName;
-    document.getElementById('modal-success').style.display   = 'block';
-    setTimeout(closeModal, 4500);
+ function showSuccess(firstName) {
+    window.location.href = '/thank-you.html?name=' + encodeURIComponent(firstName);
   }
-
+  
   document.getElementById('register-modal').addEventListener('click', function (e) {
     if (e.target === this) closeModal();
   });
@@ -645,5 +641,28 @@
     }
   }
 </script>
+
+<!-- Facebook Messenger Chat Plugin -->
+<div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({ xfbml: true, version: 'v18.0' });
+  };
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+<div class="fb-customerchat"
+  attribution="biz_inbox"
+  page_id="723492928049715"
+  theme_color="#2D5E3A"
+  logged_in_greeting="Kamusta! May katanungan ka ba tungkol sa Savia Parkway? Handa kaming tumulong! 🏡"
+  logged_out_greeting="Kamusta! May katanungan ka ba tungkol sa Savia Parkway? Handa kaming tumulong! 🏡">
+</div>
+
 </body>
 </html>
