@@ -643,26 +643,23 @@
 </script>
 
 <!-- Facebook Messenger Chat Plugin -->
-<div id="fb-root"></div>
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({ xfbml: true, version: 'v18.0' });
-  };
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-</script>
-<div class="fb-customerchat"
-  attribution="biz_inbox"
-  page_id="723492928049715"
-  theme_color="#2D5E3A"
-  logged_in_greeting="Kamusta! May katanungan ka ba tungkol sa Savia Parkway? Handa kaming tumulong! 🏡"
-  logged_out_greeting="Kamusta! May katanungan ka ba tungkol sa Savia Parkway? Handa kaming tumulong! 🏡">
+<!-- Custom Floating Messenger Button -->
+<style>
+  .messenger-float { position:fixed; bottom:28px; right:28px; z-index:9999; display:flex; flex-direction:column; align-items:flex-end; gap:10px; }
+  .messenger-btn { width:60px; height:60px; border-radius:50%; background:linear-gradient(135deg,#0084ff,#0066cc); display:flex; align-items:center; justify-content:center; box-shadow:0 6px 24px rgba(0,132,255,0.45); cursor:pointer; text-decoration:none; transition:transform 0.2s; }
+  .messenger-btn:hover { transform:scale(1.1); }
+  .messenger-pulse { position:absolute; width:60px; height:60px; border-radius:50%; background:rgba(0,132,255,0.3); animation:pulse 2s ease-out infinite; }
+  @keyframes pulse { 0%{transform:scale(1);opacity:0.6} 100%{transform:scale(1.7);opacity:0} }
+</style>
+<div class="messenger-float">
+  <div style="position:relative;width:60px;height:60px;">
+    <div class="messenger-pulse"></div>
+    <a class="messenger-btn" href="https://m.me/723492928049715" target="_blank">
+      <svg viewBox="0 0 24 24" fill="white" width="30" height="30"><path d="M12 2C6.477 2 2 6.145 2 11.259c0 2.821 1.323 5.338 3.405 7.01V22l3.107-1.707A11.12 11.12 0 0012 20.518c5.523 0 10-4.145 10-9.259S17.523 2 12 2zm1.007 12.482l-2.551-2.72-4.979 2.72 5.479-5.815 2.613 2.72 4.917-2.72-5.479 5.815z"/></svg>
+    </a>
+  </div>
 </div>
 
 </body>
 </html>
+
