@@ -266,9 +266,6 @@
     .solution-grid {
       display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
     }
-    @media (max-width: 600px) {
-      .solution-grid { grid-template-columns: 1fr; }
-    }
 
     .solution-item {
       background: var(--white); border-radius: 16px;
@@ -594,7 +591,7 @@
       <strong>Accessible Location</strong>
       <span>Nasa Tanza, Cavite — malapit sa mga paaralan, ospital, at highway papuntang Maynila.</span>
     </div>
-    <div class="solution-item" style="grid-column: 1 / -1;">
+    <div class="solution-item" style="grid-column: 1 / -1; max-width: 480px; margin: 0 auto; width:100%;">
       <div class="si-icon">🤝</div>
       <strong>Gabayan Ka Namin Sa Bawat Hakbang</strong>
       <span>Mula reservation hanggang turnover. Hindi ka mag-aalaga nang mag-isa.</span>
@@ -710,17 +707,17 @@
   <div class="section-bar"></div>
   <p style="text-align:center;font-size:14px;color:#777;margin-bottom:32px;">Isang komunidad ng mga passionate professionals na nakatuon sa pagtulong sa bawat Pilipinong pamilya na makamit ang kanilang dream home.</p>
 
-  <div class="gallery-grid">
-    <div class="gallery-item gallery-wide">
-      <img src="e.jpg" alt="Inner SPARC Team" style="width:100%;height:260px;object-fit:cover;object-position:center bottom;"/>
+  <div style="display:flex; flex-direction:column; gap:16px;">
+    <div class="gallery-item">
+      <img src="e.jpg" alt="Inner SPARC Team" style="width:100%;height:280px;object-fit:cover;object-position:center bottom;"/>
       <div class="gallery-caption"><strong>🎉 Inner SPARC Team</strong><span>Celebrating excellence together</span></div>
     </div>
     <div class="gallery-item">
-      <img src="in.jpg" alt="Inner SPARC Team Dinner" style="width:100%;height:220px;object-fit:cover;"/>
+      <img src="in.jpg" alt="Inner SPARC Team Dinner" style="width:100%;height:260px;object-fit:cover;"/>
       <div class="gallery-caption"><strong>🤝 Team Bonding</strong><span>Building relationships beyond work</span></div>
     </div>
     <div class="gallery-item">
-      <img src="inner.jpg" alt="Inner SPARC Full Team" style="width:100%;height:220px;object-fit:cover;object-position:center top;"/>
+      <img src="inner.jpg" alt="Inner SPARC Full Team" style="width:100%;height:260px;object-fit:cover;object-position:center top;"/>
       <div class="gallery-caption"><strong>💪 Our Growing Family</strong><span>United in one vision and mission</span></div>
     </div>
   </div>
