@@ -18,7 +18,6 @@
       --text-dark:   #1a2e1f;
       --text-mid:    #4a5e4e;
       --text-light:  #8a9e8e;
-      /* Brand palette: #2e5633 (80%) + #ffffff (20%) only */
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -264,13 +263,14 @@
 
     /* ── SOLUTION ─────────────────────────────────── */
     .solution-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+      display: grid; grid-template-columns: 1fr; gap: 16px;
     }
 
     .solution-item {
       background: var(--white); border-radius: 16px;
       padding: 24px; border: 1.5px solid rgba(46,86,51,0.1);
       transition: border-color 0.2s, transform 0.2s;
+      width: 100%;
     }
     .solution-item:hover { border-color: var(--green); transform: translateY(-2px); }
     .solution-item .si-icon { font-size: 28px; margin-bottom: 12px; }
@@ -281,32 +281,32 @@
     .solution-item span { font-size: 12px; color: #666; line-height: 1.65; }
 
     /* ── AMENITIES ────────────────────────────────── */
-    .video-wrap {
-      position: relative; width: 100%; padding-bottom: 56.25%;
-      background: var(--green-dark); border-radius: 16px; overflow: hidden;
-      margin-bottom: 24px;
+    .amenity-stack {
+      display: flex;
+      flex-direction: column;
     }
-    .video-placeholder {
-      position: absolute; inset: 0; display: flex;
-      align-items: center; justify-content: center; flex-direction: column; gap: 10px;
-    }
-    .video-placeholder .play { font-size: 48px; }
-    .video-placeholder p { font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700; color: var(--white); }
-    .video-placeholder small { font-size: 11px; color: rgba(255,255,255,0.4); }
 
-    .amenity-list { display: flex; flex-direction: column; gap: 0; }
-    .amenity-row {
-      display: flex; align-items: flex-start; gap: 16px;
-      padding: 18px 0;
-      border-bottom: 1px solid rgba(46,86,51,0.08);
+    .amenity-stack-item {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 40px;
     }
-    .amenity-row:last-child { border-bottom: none; }
-    .amenity-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
-    .amenity-row strong {
-      display: block; font-family: 'Montserrat', sans-serif;
-      font-size: 13px; font-weight: 700; color: var(--green-dark); margin-bottom: 3px;
+
+    .amenity-stack-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 16px;
     }
-    .amenity-row span { font-size: 12px; color: #777; line-height: 1.5; }
+
+    .amenity-stack-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--green-dark);
+      text-align: center;
+      padding: 14px 0 0;
+    }
 
     /* ── WHY INVEST ───────────────────────────────── */
     .why-grid { display: flex; flex-direction: column; gap: 20px; }
@@ -591,7 +591,7 @@
       <strong>Accessible Location</strong>
       <span>Nasa Tanza, Cavite — malapit sa mga paaralan, ospital, at highway papuntang Maynila.</span>
     </div>
-    <div class="solution-item" style="grid-column: 1 / -1; max-width: 480px; margin: 0 auto; width:100%;">
+    <div class="solution-item">
       <div class="si-icon">🤝</div>
       <strong>Gabayan Ka Namin Sa Bawat Hakbang</strong>
       <span>Mula reservation hanggang turnover. Hindi ka mag-aalaga nang mag-isa.</span>
@@ -617,24 +617,53 @@
   <p style="text-align:center;font-size:14px;color:#777;margin-bottom:8px;">Para sa Buong Pamilya — Kasama Na sa Iyong Investment</p>
   <div class="section-bar"></div>
 
-  <div class="video-wrap">
-    <div class="video-placeholder">
-      <div class="play">▶️</div>
-      <p>Video Coming Soon</p>
-      <small>Replace this with your YouTube embed URL</small>
-    </div>
-  </div>
+  <div class="amenity-stack">
 
-  <div class="amenity-list">
-    <div class="amenity-row"><div class="amenity-icon">🏛️</div><div><strong>Village Entrance</strong><span>A grand and secure entrance that sets the tone for the whole community.</span></div></div>
-    <div class="amenity-row"><div class="amenity-icon">🏢</div><div><strong>Community Service Center</strong><span>A dedicated space for homeowner services, meetings, and community needs.</span></div></div>
-    <div class="amenity-row"><div class="amenity-icon">🛝</div><div><strong>Children's Playground</strong><span>A safe and fun space where kids can play, explore, and make friends.</span></div></div>
-    <div class="amenity-row"><div class="amenity-icon">🏟️</div><div><strong>Community Hall</strong><span>A multi-purpose venue for events, celebrations, and community gatherings.</span></div></div>
-    <div class="amenity-row"><div class="amenity-icon">🏸</div><div><strong>Pickleball Park</strong><span>Stay active with one of the fastest-growing sports — right at your doorstep.</span></div></div>
-    <div class="amenity-row"><div class="amenity-icon">🧘</div><div><strong>Wellness & Yoga Park</strong><span>An open outdoor space designed for relaxation, meditation, and daily wellness.</span></div></div>
-    <div class="amenity-row"><div class="amenity-icon">🐕</div><div><strong>Children's Park & Dog Park</strong><span>A family-friendly green space where both kids and furry friends can roam freely.</span></div></div>
-    <div class="amenity-row"><div class="amenity-icon">🏖️</div><div><strong>Sandbox & Playground Park</strong><span>A creative play area featuring a sandbox and play equipment for younger children.</span></div></div>
-    <div class="amenity-row"><div class="amenity-icon">🍼</div><div><strong>Toddler Playground</strong><span>A safe, age-appropriate play zone for toddlers and young children.</span></div></div>
+    <div class="amenity-stack-item">
+      <img src="amenity_1a.png" alt="Village Entrance"/>
+      <div class="amenity-stack-title">🏛️ Village Entrance</div>
+    </div>
+
+    <div class="amenity-stack-item">
+      <img src="amenity_1b.png" alt="Community Service Center"/>
+      <div class="amenity-stack-title">🏢 Community Service Center</div>
+    </div>
+
+    <div class="amenity-stack-item">
+      <img src="amenity_2a.png" alt="Children's Playground"/>
+      <div class="amenity-stack-title">🛝 Children's Playground</div>
+    </div>
+
+    <div class="amenity-stack-item">
+      <img src="amenity_2b.png" alt="Community Hall"/>
+      <div class="amenity-stack-title">🏟️ Community Hall</div>
+    </div>
+
+    <div class="amenity-stack-item">
+      <img src="amenity_3a.png" alt="Pickleball Park"/>
+      <div class="amenity-stack-title">🏸 Pickleball Park</div>
+    </div>
+
+    <div class="amenity-stack-item">
+      <img src="amenity_3b.png" alt="Wellness & Yoga Park"/>
+      <div class="amenity-stack-title">🧘 Wellness &amp; Yoga Park</div>
+    </div>
+
+    <div class="amenity-stack-item">
+      <img src="amenity_4a.png" alt="Children's Park & Dog Park"/>
+      <div class="amenity-stack-title">🐕 Children's Park &amp; Dog Park</div>
+    </div>
+
+    <div class="amenity-stack-item">
+      <img src="amenity_4b.png" alt="Sandbox & Playground Park"/>
+      <div class="amenity-stack-title">🏖️ Sandbox &amp; Playground Park</div>
+    </div>
+
+    <div class="amenity-stack-item">
+      <img src="amenity_5a.png" alt="Toddler Playground"/>
+      <div class="amenity-stack-title">🍼 Toddler Playground</div>
+    </div>
+
   </div>
 </div>
 
