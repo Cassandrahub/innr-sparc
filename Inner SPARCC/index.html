@@ -268,11 +268,16 @@
 
     .solution-item {
       background: var(--white); border-radius: 16px;
-      padding: 24px; border: 1.5px solid rgba(46,86,51,0.1);
+      overflow: hidden;
+      border: 1.5px solid rgba(46,86,51,0.1);
       transition: border-color 0.2s, transform 0.2s;
       width: 100%;
     }
     .solution-item:hover { border-color: var(--green); transform: translateY(-2px); }
+    .solution-item img {
+      width: 100%; height: 220px; object-fit: cover; display: block;
+    }
+    .solution-item-body { padding: 24px; }
     .solution-item .si-icon { font-size: 28px; margin-bottom: 12px; }
     .solution-item strong {
       display: block; font-family: 'Montserrat', sans-serif;
@@ -281,6 +286,19 @@
     .solution-item span { font-size: 12px; color: #666; line-height: 1.65; }
 
     /* ── AMENITIES ────────────────────────────────── */
+    .video-wrap {
+      position: relative; width: 100%; padding-bottom: 56.25%;
+      background: var(--green-dark); border-radius: 16px; overflow: hidden;
+      margin-bottom: 24px;
+    }
+    .video-placeholder {
+      position: absolute; inset: 0; display: flex;
+      align-items: center; justify-content: center; flex-direction: column; gap: 10px;
+    }
+    .video-placeholder .play { font-size: 48px; }
+    .video-placeholder p { font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700; color: var(--white); }
+    .video-placeholder small { font-size: 11px; color: rgba(255,255,255,0.4); }
+
     .amenity-stack {
       display: flex;
       flex-direction: column;
@@ -572,29 +590,44 @@
 
   <div class="solution-grid">
     <div class="solution-item">
-      <div class="si-icon">✨</div>
-      <strong>Pre-Selling Price Advantage</strong>
-      <span>Pwede kang mag-reserve ngayon sa pre-selling price — at ang halaga nito ay tataas habang nagtatayo ang komunidad.</span>
+      <img src="lowprice.jpg" alt="Pre-Selling Price Advantage"/>
+      <div class="solution-item-body">
+
+        <strong>Pre-Selling Price Advantage</strong>
+        <span>Pwede kang mag-reserve ngayon sa pre-selling price — at ang halaga nito ay tataas habang nagtatayo ang komunidad.</span>
+      </div>
     </div>
     <div class="solution-item">
-      <div class="si-icon">📋</div>
-      <strong>Flexible Payment Terms</strong>
-      <span>May in-house, bank loan, o Pag-IBIG. Hindi kailangan ng malaking pera agad.</span>
+      <img src="flexible.jpg" alt="Flexible Payment Terms"/>
+      <div class="solution-item-body">
+
+        <strong>Flexible Payment Terms</strong>
+        <span>May in-house, bank loan, o Pag-IBIG. Hindi kailangan ng malaking pera agad.</span>
+      </div>
     </div>
     <div class="solution-item">
-      <div class="si-icon">🏘️</div>
-      <strong>Low-Density — 236 Homes Lang</strong>
-      <span>Maluwag, tahimik, at may world-class amenities para sa buong pamilya.</span>
+      <img src="lowdens.jpg" alt="Low-Density"/>
+      <div class="solution-item-body">
+
+        <strong>Low-Density — 236 Homes Lang</strong>
+        <span>Maluwag, tahimik, at may world-class amenities para sa buong pamilya.</span>
+      </div>
     </div>
     <div class="solution-item">
-      <div class="si-icon">📍</div>
-      <strong>Accessible Location</strong>
-      <span>Nasa Tanza, Cavite — malapit sa mga paaralan, ospital, at highway papuntang Maynila.</span>
+      <img src="accessible.jpg" alt="Accessible Location"/>
+      <div class="solution-item-body">
+
+        <strong>Accessible Location</strong>
+        <span>Nasa Tanza, Cavite — malapit sa mga paaralan, ospital, at highway papuntang Maynila.</span>
+      </div>
     </div>
     <div class="solution-item">
-      <div class="si-icon">🤝</div>
-      <strong>Gabayan Ka Namin Sa Bawat Hakbang</strong>
-      <span>Mula reservation hanggang turnover. Hindi ka mag-aalaga nang mag-isa.</span>
+      <img src="guide.jpg" alt="Gabayan Ka Namin"/>
+      <div class="solution-item-body">
+
+        <strong>Gabayan Ka Namin Sa Bawat Hakbang</strong>
+        <span>Mula reservation hanggang turnover. Hindi ka mag-aalaga nang mag-isa.</span>
+      </div>
     </div>
   </div>
 </div>
@@ -606,7 +639,14 @@
     <h2 style="font-family:'Montserrat',sans-serif; font-size:clamp(28px,5vw,48px); font-weight:900; color:var(--green-dark); letter-spacing:2px; margin-bottom:10px;">SAVIA PARKWAY</h2>
     <p style="font-family:'Poppins',sans-serif; font-size:15px; color:#777; font-style:italic; margin-bottom:18px;">Pre-Selling — Newest Township-Style Community sa Tanza, Cavite</p>
     <div style="width:48px; height:4px; background:var(--green); border-radius:4px; margin:0 auto 24px;"></div>
-    <p style="font-family:'Poppins',sans-serif; font-size:15px; color:#555; line-height:1.75; max-width:560px; margin:0 auto;">Mag-invest ngayon sa pre-selling price at hayaang ang oras ang gumawa ng trabaho para sa iyo. Sa pagtatayo ng Savia Parkway, tataas ang halaga ng iyong property — at ikaw ang makikinabang.</p>
+    <p style="font-family:'Poppins',sans-serif; font-size:15px; color:#555; line-height:1.75; max-width:560px; margin:0 auto 32px;">Mag-invest ngayon sa pre-selling price at hayaang ang oras ang gumawa ng trabaho para sa iyo. Sa pagtatayo ng Savia Parkway, tataas ang halaga ng iyong property — at ikaw ang makikinabang.</p>
+    <div class="video-wrap" style="max-width:700px; margin:0 auto;">
+      <div class="video-placeholder">
+        <div class="play">▶️</div>
+        <p>Video Coming Soon</p>
+        <small>Replace this with your YouTube embed URL</small>
+      </div>
+    </div>
   </div>
 </div>
 
