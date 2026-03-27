@@ -1006,7 +1006,7 @@
     btn.disabled=true; btn.textContent='Sending…';
     var parts=name.split(' '),firstName=parts[0],lastName=parts.slice(1).join(' ')||'';
     try {
-      var response=await fetch('//api/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,firstName,lastName,phone})});
+      var response=await fetch('/api/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,firstName,lastName,phone})});
       var data=await response.json();
       if(response.ok&&data.ok){window.location.href='/thank-you.html?name='+encodeURIComponent(firstName);}
       else{throw new Error(data.error||'API error');}
