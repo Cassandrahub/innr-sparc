@@ -4,6 +4,16 @@ export default async function handler(req, res) {
   }
 
   try {
+    // Parse body if it's a string
+    const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
+    const { email, firstName, lastName, phone } = body;
+
+export default async function handler(req, res) {
+  if (req.method !== 'POST') {
+    return res.status(405).send('Method Not Allowed');
+  }
+
+  try {
     const { email, firstName, lastName, phone } = req.body;
 
     if (!email || !firstName) {
