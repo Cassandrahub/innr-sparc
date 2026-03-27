@@ -69,13 +69,13 @@ export default async function handler(req, res) {
           email: 'annacassandra0519@gmail.com'
         },
         to: [{ email: 'annacassandra0519@gmail.com' }],
-        subject: `🔔 Bagong Lead: ${firstName} ${lastName || ''}`.trim(),
+        subject: `🔔 New Lead: ${firstName} ${lastName || ''}`.trim(),
         htmlContent: `
           <div style="font-family:Arial,sans-serif;max-width:500px;margin:0 auto;">
             <h2 style="color:#2e5633;">Bagong Inquiry — Savia Parkway</h2>
             <table style="width:100%;border-collapse:collapse;">
               <tr>
-                <td style="padding:8px 0;color:#666;width:120px;">Pangalan:</td>
+                <td style="padding:8px 0;color:#666;width:120px;">Name:</td>
                 <td style="padding:8px 0;font-weight:bold;">${firstName} ${lastName || ''}</td>
               </tr>
               <tr>
@@ -83,13 +83,13 @@ export default async function handler(req, res) {
                 <td style="padding:8px 0;font-weight:bold;">${email}</td>
               </tr>
               <tr>
-                <td style="padding:8px 0;color:#666;">Numero:</td>
+                <td style="padding:8px 0;color:#666;">Number:</td>
                 <td style="padding:8px 0;font-weight:bold;">${phone || 'Hindi ibinigay'}</td>
               </tr>
             </table>
             <hr style="border:none;border-top:1px solid #eee;margin:20px 0;"/>
             <p style="color:#888;font-size:13px;">
-              I-follow up agad habang mainit pa ang interes nila!
+              Follow up immediately while they're still interested!
             </p>
           </div>
         `
