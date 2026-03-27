@@ -4,36 +4,30 @@ export default async function handler(req, res) {
   }
 
   try {
-    // Parse body if it's a string
+    // Safe body parsing for all environments
     const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
     const { email, firstName, lastName, phone } = body;
-
-export default async function handler(req, res) {
-  if (req.method !== 'POST') {
-    return res.status(405).send('Method Not Allowed');
-  }
-
-  try {
-    const { email, firstName, lastName, phone } = req.body;
 
     if (!email || !firstName) {
       return res.status(400).json({ error: 'Missing required fields' });
     }
 
-    // 1. Add contact to Brevo list
+    // Format phone number to E.164 if provided
+    const formattedPhone = phone
+      ? '+63' + phone.replace(/^0/, '').replace(/\s+/g, '').replace(/-/g, '')
+      : null;
+
+    // 1. Add/update contact in Brevo
     const payload = {
       email,
       attributes: {
         FIRSTNAME: firstName,
         LASTNAME: lastName || '',
-        SMS: phone ? '+63' + phone.replace(/^0/, '').replace(/\s+/g, '') : undefined
+        ...(formattedPhone && { SMS: formattedPhone })
       },
       listIds: [6],
       updateEnabled: true
     };
-
-    if (!payload.attributes.SMS) delete payload.attributes.SMS;
-    if (!payload.attributes.LASTNAME) delete payload.attributes.LASTNAME;
 
     const contactRes = await fetch('https://api.brevo.com/v3/contacts', {
       method: 'POST',
@@ -44,45 +38,74 @@ export default async function handler(req, res) {
       body: JSON.stringify(payload)
     });
 
-    if (contactRes.status !== 201 && contactRes.status !== 204) {
+    // 201 = created, 204 = updated, some Brevo plans return 200
+    // 400 with "Contact already exist" is also safe to treat as success
+    if (
+      contactRes.status !== 201 &&
+      contactRes.status !== 204 &&
+      contactRes.status !== 200
+    ) {
       const errData = await contactRes.json().catch(() => ({}));
-      return res.status(400).json({ error: errData.message || 'Brevo API error' });
+      const isAlreadyExists =
+        typeof errData.message === 'string' &&
+        errData.message.toLowerCase().includes('contact already exist');
+
+      if (!isAlreadyExists) {
+        console.error('Brevo contact error:', errData);
+        return res.status(400).json({ error: errData.message || 'Brevo API error' });
+      }
     }
 
-    // 2. Send notification email
-    await fetch('https://api.brevo.com/v3/smtp/email', {
+    // 2. Send notification email to broker
+    const emailRes = await fetch('https://api.brevo.com/v3/smtp/email', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'api-key': process.env.BREVO_API_KEY
       },
       body: JSON.stringify({
-        sender: { name: 'Savia Parkway Leads', email: 'annacassandra0519@gmail.com' },
+        sender: {
+          name: 'Savia Parkway Leads',
+          email: 'annacassandra0519@gmail.com'
+        },
         to: [{ email: 'annacassandra0519@gmail.com' }],
-        subject: `🔔 Bagong Lead: ${firstName} ${lastName}`.trim(),
+        subject: `🔔 Bagong Lead: ${firstName} ${lastName || ''}`.trim(),
         htmlContent: `
-          <h2>Bagong inquiry sa Savia Parkway!</h2>
-          <p><strong>Pangalan:</strong> ${firstName} ${lastName}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Numero:</strong> ${phone || 'Hindi ibinigay'}</p>
-          <hr/>
-          <p><em>I-follow up agad habang mainit pa ang interes nila!</em></p>
+          <div style="font-family:Arial,sans-serif;max-width:500px;margin:0 auto;">
+            <h2 style="color:#2e5633;">Bagong Inquiry — Savia Parkway</h2>
+            <table style="width:100%;border-collapse:collapse;">
+              <tr>
+                <td style="padding:8px 0;color:#666;width:120px;">Pangalan:</td>
+                <td style="padding:8px 0;font-weight:bold;">${firstName} ${lastName || ''}</td>
+              </tr>
+              <tr>
+                <td style="padding:8px 0;color:#666;">Email:</td>
+                <td style="padding:8px 0;font-weight:bold;">${email}</td>
+              </tr>
+              <tr>
+                <td style="padding:8px 0;color:#666;">Numero:</td>
+                <td style="padding:8px 0;font-weight:bold;">${phone || 'Hindi ibinigay'}</td>
+              </tr>
+            </table>
+            <hr style="border:none;border-top:1px solid #eee;margin:20px 0;"/>
+            <p style="color:#888;font-size:13px;">
+              I-follow up agad habang mainit pa ang interes nila!
+            </p>
+          </div>
         `
       })
     });
 
+    if (!emailRes.ok) {
+      // Log but don't fail the request — contact was already saved
+      const emailErr = await emailRes.json().catch(() => ({}));
+      console.error('Brevo email error:', emailErr);
+    }
+
     return res.status(200).json({ ok: true });
 
   } catch (err) {
-    return res.status(500).json({ error: err.message });
+    console.error('SUBSCRIBE HANDLER ERROR:', err);
+    return res.status(500).json({ error: err.message || 'Internal server error' });
   }
 }
-```
-
-Then update your form's fetch URL from:
-```
-/.netlify/functions/subscribe
-```
-to:
-```
-/api/subscribe
