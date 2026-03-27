@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Savia Parkway – Premium Low-Density Living in Tanza, Cavite</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --brand:       #2e5633;
+      --brand-dark:  #1f3d24;
+      --brand-deep:  #162b19;
+      --brand-mid:   #3d7245;
+      --brand-light: #4a8554;
+      --white:       #ffffff;
+      --off-white:   #f7f9f7;
+      --cream:       #f4f6f4;
+      --cream-dark:  #e8ece8;
+      --text:        #1a2e1e;
+      --text-mid:    #4a5e4e;
+      --text-light:  #7a8e7e;
+      --accent:      #c8a96e;
+      --accent-light:#e8d5b0;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--off-white); font-family: 'Poppins', Arial, sans-serif; color: var(--text); overflow-x: hidden; }
+    img { display: block; border: 0; }
+    a { color: inherit; text-decoration: none; }
+
+    /* MODAL */
+    #register-modal { display:none; position:fixed; inset:0; z-index:9999; align-items:center; justify-content:center; background:rgba(22,43,25,0.88); backdrop-filter:blur(8px); }
+    #register-modal.open { display:flex; }
+    .modal-box { background:var(--white); border-radius:20px; width:100%; max-width:460px; margin:20px; overflow:hidden; box-shadow:0 40px 100px rgba(0,0,0,0.4); animation:modalIn 0.4s cubic-bezier(0.34,1.56,0.64,1) forwards; }
+    @keyframes modalIn { from{opacity:0;transform:scale(0.88) translateY(28px);} to{opacity:1;transform:scale(1) translateY(0);} }
+    .modal-header { background:linear-gradient(150deg,var(--brand-deep),var(--brand)); padding:40px 36px 32px; text-align:center; position:relative; overflow:hidden; }
+    .modal-header::before { content:''; position:absolute; inset:0; background-image:radial-gradient(circle,rgba(255,255,255,0.05) 1px,transparent 1px); background-size:20px 20px; }
+    .modal-header .tag { display:inline-block; position:relative; background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.25); color:rgba(255,255,255,0.85); font-family:'Montserrat',sans-serif; font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:6px 18px; border-radius:100px; margin-bottom:16px; }
+    .modal-header h2 { font-family:'Montserrat',sans-serif; font-size:24px; font-weight:800; color:var(--white); margin:0 0 8px; line-height:1.25; position:relative; }
+    .modal-header p { font-size:13px; color:rgba(255,255,255,0.6); position:relative; }
+    .modal-body { padding:32px 36px 36px; }
+    .modal-field { margin-bottom:16px; }
+    .modal-field label { display:block; font-family:'Montserrat',sans-serif; font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--text-mid); margin-bottom:8px; }
+    .modal-field input { width:100%; padding:14px 18px; border:1.5px solid #e0dbd0; border-radius:10px; font-family:'Poppins',sans-serif; font-size:14px; color:var(--text); outline:none; background:#fafaf6; transition:border-color 0.2s; }
+    .modal-field input:focus { border-color:var(--brand); background:var(--white); }
+    .modal-field input::placeholder { color:#bbb; }
+    .modal-submit { width:100%; padding:17px; background:linear-gradient(135deg,var(--brand-deep),var(--brand)); color:var(--white); border:none; border-radius:10px; font-family:'Montserrat',sans-serif; font-size:13px; font-weight:700; cursor:pointer; letter-spacing:1.5px; text-transform:uppercase; transition:opacity 0.2s,transform 0.2s; margin-top:4px; }
+    .modal-submit:hover { opacity:0.9; transform:translateY(-1px); }
+    .modal-submit:disabled { opacity:0.55; cursor:not-allowed; transform:none; }
+    .modal-note { text-align:center; font-size:11px; color:#bbb; margin-top:12px; }
+    .modal-close { position:absolute; top:14px; right:18px; background:none; border:none; color:rgba(255,255,255,0.5); font-size:20px; cursor:pointer; z-index:2; padding:4px; }
+    .modal-close:hover { color:var(--white); }
+    .modal-error { background:#fff1f1; border:1px solid #f5c6c6; border-radius:8px; padding:12px 14px; margin-bottom:14px; font-size:12px; color:#c0392b; display:none; }
+
+    /* SHARED */
+    .wrap { max-width:640px; margin:0 auto; padding:0 24px; }
+    .sec { padding:80px 24px; }
+    .eyebrow { font-family:'Montserrat',sans-serif; font-size:9px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--brand); display:block; text-align:center; margin-bottom:12px; }
+    .eyebrow.light { color:rgba(255,255,255,0.65); }
+    .sec-title { font-family:'Montserrat',sans-serif; font-size:clamp(26px,5vw,38px); font-weight:800; color:var(--brand-deep); text-align:center; line-height:1.2; margin-bottom:14px; }
+    .sec-title em { font-style:normal; color:var(--brand); }
+    .sec-title.light { color:var(--white); }
+    .sec-title.light em { color:rgba(255,255,255,0.7); }
+    .rule { width:48px; height:3px; background:var(--brand); border-radius:2px; margin:0 auto 20px; }
+    .rule.light { background:rgba(255,255,255,0.35); }
+    .lead { font-size:15px; color:var(--text-mid); line-height:1.85; text-align:center; font-weight:300; }
+    .lead.light { color:rgba(255,255,255,0.65); }
+    .btn-primary { display:inline-block; background:var(--white); color:var(--brand-deep); font-family:'Montserrat',sans-serif; font-size:11px; font-weight:800; padding:17px 42px; border-radius:6px; letter-spacing:2px; text-transform:uppercase; box-shadow:0 4px 20px rgba(0,0,0,0.2); transition:transform 0.2s,box-shadow 0.2s; }
+    .btn-primary:hover { transform:translateY(-2px); box-shadow:0 8px 28px rgba(0,0,0,0.28); }
+    .btn-outline { display:inline-block; border:1.5px solid rgba(255,255,255,0.4); color:rgba(255,255,255,0.88); font-family:'Montserrat',sans-serif; font-size:11px; font-weight:600; padding:17px 38px; border-radius:6px; letter-spacing:2px; text-transform:uppercase; transition:border-color 0.2s,color 0.2s; }
+    .btn-outline:hover { border-color:var(--white); color:var(--white); }
+    .btn-green { display:inline-block; background:var(--brand); color:var(--white); font-family:'Montserrat',sans-serif; font-size:11px; font-weight:800; padding:17px 42px; border-radius:6px; letter-spacing:2px; text-transform:uppercase; box-shadow:0 4px 20px rgba(46,86,51,0.35); transition:transform 0.2s,background 0.2s; }
+    .btn-green:hover { transform:translateY(-2px); background:var(--brand-dark); }
+
+    /* HERO */
+    .hero { min-height:100vh; background:linear-gradient(165deg,var(--brand-deep) 0%,var(--brand) 55%,var(--brand-mid) 100%); display:flex; align-items:center; justify-content:center; text-align:center; padding:96px 24px 80px; position:relative; overflow:hidden; }
+    .hero::before { content:''; position:absolute; inset:0; pointer-events:none; background-image:radial-gradient(circle,rgba(255,255,255,0.05) 1px,transparent 1px); background-size:36px 36px; }
+    .hero-glow { position:absolute; border-radius:50%; pointer-events:none; }
+    .glow-1 { width:500px;height:500px;background:radial-gradient(circle,rgba(255,255,255,0.06) 0%,transparent 70%);top:-120px;right:-180px; }
+    .glow-2 { width:400px;height:400px;background:radial-gradient(circle,rgba(255,255,255,0.04) 0%,transparent 70%);bottom:-80px;left:-140px; }
+    .hero-inner { position:relative; z-index:1; max-width:600px; margin:0 auto; }
+    .hero-pill { display:inline-flex; align-items:center; gap:10px; border:1px solid rgba(255,255,255,0.35); color:rgba(255,255,255,0.88); font-family:'Montserrat',sans-serif; font-size:9px; font-weight:700; letter-spacing:3px; text-transform:uppercase; padding:8px 22px; border-radius:100px; margin-bottom:32px; }
+    .hero-pill .dot { width:5px;height:5px;background:var(--white);border-radius:50%; }
+    .hero-logo-row { display:flex; align-items:center; justify-content:center; margin-bottom:28px; }
+    .hero h1 { font-family:'Montserrat',sans-serif; font-size:clamp(30px,7vw,58px); font-weight:800; color:var(--white); line-height:1.15; margin-bottom:12px; letter-spacing:-0.5px; }
+    .hero h1 em { font-style:normal; font-weight:300; color:rgba(255,255,255,0.75); }
+    .hero-sub { font-family:'Poppins',sans-serif; font-size:clamp(14px,2.5vw,17px); font-weight:300; color:rgba(255,255,255,0.65); margin-bottom:28px; }
+    .hero-rule { width:48px; height:3px; background:rgba(255,255,255,0.35); border-radius:2px; margin:0 auto 28px; }
+    .hero-desc { font-size:15px; color:rgba(255,255,255,0.7); line-height:1.9; font-weight:300; margin-bottom:40px; }
+    .hero-btns { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+    .hero-scroll { position:absolute; bottom:28px; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:8px; font-family:'Montserrat',sans-serif; font-size:8px; font-weight:600; color:rgba(255,255,255,0.3); letter-spacing:3px; text-transform:uppercase; }
+    .scroll-line { width:1px; height:36px; background:linear-gradient(180deg,rgba(255,255,255,0.4),transparent); animation:sp 2s ease-in-out infinite; }
+    @keyframes sp { 0%,100%{opacity:0.3;} 50%{opacity:1;} }
+
+    /* ALERT BAR */
+    .alert-bar { background:var(--brand); padding:13px 24px; text-align:center; }
+    .alert-bar p { font-family:'Montserrat',sans-serif; font-size:11px; font-weight:700; color:var(--white); letter-spacing:0.8px; text-transform:uppercase; }
+
+    /* STATS */
+    .stats-band { background:var(--brand-deep); padding:0 24px; }
+    .stats-row { max-width:640px; margin:0 auto; display:flex; border:1px solid rgba(255,255,255,0.08); }
+    .stat-cell { flex:1; padding:36px 12px; text-align:center; border-right:1px solid rgba(255,255,255,0.08); }
+    .stat-cell:last-child { border-right:none; }
+    .stat-num { font-family:'Montserrat',sans-serif; font-size:34px; font-weight:800; color:var(--white); display:block; margin-bottom:5px; }
+    .stat-label { font-family:'Montserrat',sans-serif; font-size:7px; font-weight:600; color:rgba(255,255,255,0.4); text-transform:uppercase; letter-spacing:1.5px; }
+
+    /* ── AD VIDEO SECTION ── */
+    .video-section {
+      background: var(--brand-deep);
+      padding: 64px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .video-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 28px 28px;
+      pointer-events: none;
+    }
+    .video-section-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .video-eyebrow {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .video-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(22px, 5vw, 32px);
+      font-weight: 800;
+      color: var(--white);
+      text-align: center;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+    .video-title em {
+      font-style: normal;
+      font-weight: 300;
+      color: rgba(255,255,255,0.65);
+    }
+    .video-subtitle {
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .video-frame {
+      position: relative;
+      width: 100%;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow:
+        0 0 0 1px rgba(200,169,110,0.25),
+        0 32px 64px rgba(0,0,0,0.5),
+        0 8px 20px rgba(0,0,0,0.3);
+    }
+    /* Gold shimmer border */
+    .video-frame::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 16px;
+      border: 1.5px solid rgba(200,169,110,0.3);
+      z-index: 2;
+      pointer-events: none;
+    }
+    .video-frame video {
+      width: 100%;
+      display: block;
+      border-radius: 16px;
+      background: #000;
+    }
+    .video-cta-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+    .video-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(200,169,110,0.12);
+      border: 1px solid rgba(200,169,110,0.28);
+      color: var(--accent-light);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 7px 16px;
+      border-radius: 100px;
+    }
+    .video-badge .vb-dot {
+      width: 5px;
+      height: 5px;
+      background: var(--accent);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* INTRO */
+    .intro-body { margin-top:36px; }
+    .intro-body p { font-size:15px; color:var(--text-mid); line-height:1.9; font-weight:300; text-align:center; margin-bottom:16px; }
+    .quote-block { margin:36px auto 0; max-width:560px; background:var(--cream-dark); border-radius:12px; padding:32px 32px 26px; border-left:3px solid var(--brand); position:relative; }
+    .quote-block::before { content:'\201C'; font-family:'Montserrat',sans-serif; font-size:80px; font-weight:700; color:var(--brand); opacity:0.2; position:absolute; top:-6px; left:20px; line-height:1; }
+    .quote-block p { font-family:'Poppins',sans-serif; font-size:15px; font-weight:300; font-style:italic; color:var(--text); line-height:1.75; padding-top:20px; }
+    .quote-block footer { margin-top:14px; font-family:'Montserrat',sans-serif; font-size:8px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--text-light); }
+
+    /* NAME MEANING */
+    .name-meaning { background:var(--brand-deep); border-radius:14px; padding:32px 28px; text-align:center; margin-top:36px; position:relative; overflow:hidden; }
+    .name-meaning::before { content:''; position:absolute; inset:0; background-image:radial-gradient(circle,rgba(255,255,255,0.04) 1px,transparent 1px); background-size:20px 20px; }
+    .name-meaning-inner { position:relative; z-index:1; }
+    .name-row { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+    .name-part { flex:1; min-width:180px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:20px 18px; }
+    .name-word { font-family:'Montserrat',sans-serif; font-size:22px; font-weight:900; color:var(--white); margin-bottom:6px; letter-spacing:2px; }
+    .name-lang { font-family:'Montserrat',sans-serif; font-size:8px; font-weight:600; color:rgba(255,255,255,0.4); letter-spacing:2px; text-transform:uppercase; margin-bottom:8px; }
+    .name-def { font-size:13px; color:rgba(255,255,255,0.7); font-weight:300; line-height:1.6; }
+
+    /* COMPARISON */
+    .compare-table { margin-top:36px; border-radius:12px; overflow:hidden; border:1px solid rgba(46,86,51,0.15); }
+    .compare-header { display:grid; grid-template-columns:1fr 1fr 1fr; background:var(--brand-deep); }
+    .compare-header div { padding:14px 16px; font-family:'Montserrat',sans-serif; font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.6); text-align:center; }
+    .compare-header div:first-child { text-align:left; }
+    .compare-row { display:grid; grid-template-columns:1fr 1fr 1fr; border-top:1px solid rgba(46,86,51,0.1); background:var(--white); transition:background 0.15s; }
+    .compare-row:hover { background:rgba(46,86,51,0.04); }
+    .compare-row div { padding:13px 16px; font-size:13px; color:var(--text-mid); font-weight:300; text-align:center; line-height:1.5; }
+    .compare-row div:first-child { font-family:'Montserrat',sans-serif; font-size:11px; font-weight:700; color:var(--text); text-align:left; text-transform:uppercase; letter-spacing:0.5px; }
+    .compare-row div.highlight { color:var(--brand); font-weight:600; }
+
+    /* PAIN */
+    .pain-list { margin-top:40px; display:flex; flex-direction:column; gap:12px; }
+    .pain-item { background:var(--white); border-radius:12px; padding:24px 24px 24px 20px; border:1px solid rgba(46,86,51,0.1); display:flex; align-items:flex-start; gap:16px; transition:transform 0.2s,border-color 0.2s; }
+    .pain-item:hover { transform:translateX(4px); border-color:var(--brand); }
+    .pain-icon { font-size:22px; flex-shrink:0; margin-top:2px; }
+    .pain-text h3 { font-family:'Montserrat',sans-serif; font-size:16px; font-weight:700; color:var(--brand-deep); margin-bottom:5px; }
+    .pain-text p { font-size:13px; color:var(--text-mid); line-height:1.75; font-weight:300; }
+    .pain-badge { display:inline-block; margin-top:10px; background:rgba(46,86,51,0.08); border:1px solid rgba(46,86,51,0.18); color:var(--brand); font-family:'Montserrat',sans-serif; font-size:9px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; padding:4px 12px; border-radius:100px; }
+    .cta-bridge { margin-top:40px; text-align:center; background:var(--brand-deep); border-radius:12px; padding:40px 28px; position:relative; overflow:hidden; }
+    .cta-bridge::before { content:''; position:absolute; inset:0; background-image:radial-gradient(circle,rgba(255,255,255,0.04) 1px,transparent 1px); background-size:22px 22px; }
+    .cta-bridge h3 { font-family:'Montserrat',sans-serif; font-size:22px; font-weight:800; color:var(--white); margin-bottom:10px; position:relative; }
+    .cta-bridge p { font-size:14px; color:rgba(255,255,255,0.6); margin-bottom:22px; position:relative; font-weight:300; }
+
+    /* BRAND REVEAL */
+    .brand-reveal { background:linear-gradient(160deg,var(--brand-deep),var(--brand)); padding:96px 24px; text-align:center; position:relative; overflow:hidden; }
+    .brand-reveal::before { content:''; position:absolute; inset:0; background-image:radial-gradient(circle,rgba(255,255,255,0.04) 1px,transparent 1px); background-size:30px 30px; }
+    .brand-reveal-inner { position:relative; z-index:1; max-width:600px; margin:0 auto; }
+    .brand-label { font-family:'Montserrat',sans-serif; font-size:9px; font-weight:700; letter-spacing:3.5px; text-transform:uppercase; color:rgba(255,255,255,0.6); display:block; margin-bottom:18px; }
+    .big-name { font-family:'Montserrat',sans-serif; font-size:clamp(52px,11vw,92px); font-weight:900; color:var(--white); letter-spacing:10px; line-height:1; margin-bottom:4px; }
+    .parkway-word { font-family:'Montserrat',sans-serif; font-size:13px; font-weight:600; letter-spacing:10px; color:rgba(255,255,255,0.45); margin-bottom:14px; }
+    .brand-tagline { font-family:'Poppins',sans-serif; font-size:15px; font-weight:300; color:rgba(255,255,255,0.65); margin-bottom:28px; }
+    .brand-rule { width:48px; height:3px; background:rgba(255,255,255,0.3); border-radius:2px; margin:0 auto 28px; }
+    .brand-reveal p { font-size:15px; color:rgba(255,255,255,0.7); line-height:1.9; font-weight:300; margin-bottom:14px; }
+    .pillars-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:36px; }
+    .pillar-item { background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:18px 16px; text-align:left; }
+    .pillar-icon { font-size:20px; margin-bottom:8px; }
+    .pillar-name { font-family:'Montserrat',sans-serif; font-size:11px; font-weight:700; color:var(--white); margin-bottom:4px; }
+    .pillar-desc { font-size:12px; color:rgba(255,255,255,0.55); font-weight:300; line-height:1.6; }
+
+    /* AMENITIES */
+    .amenity-stack { margin-top:44px; display:flex; flex-direction:column; gap:12px; }
+    .amenity-item { border-radius:12px; overflow:hidden; background:var(--brand-deep); border:1px solid rgba(46,86,51,0.15); }
+    .amenity-item img { width:100%; height:220px; object-fit:cover; object-position:center; display:block; transition:transform 0.5s; }
+    .amenity-item:hover img { transform:scale(1.03); }
+    .amenity-overlay { padding:20px 22px 22px; }
+    .am-top { display:flex; align-items:center; gap:10px; margin-bottom:12px; padding-bottom:12px; border-bottom:1px solid rgba(255,255,255,0.1); }
+    .am-icon { font-size:20px; flex-shrink:0; }
+    .am-name { font-family:'Montserrat',sans-serif; font-size:18px; font-weight:700; color:var(--white); line-height:1.2; }
+    .am-desc { font-size:13px; color:rgba(255,255,255,0.65); line-height:1.75; margin-bottom:12px; font-weight:300; }
+    .am-advantage { font-size:12px; color:rgba(255,255,255,0.55); line-height:1.8; font-weight:300; padding:10px 14px; background:rgba(255,255,255,0.06); border-left:2px solid rgba(255,255,255,0.2); border-radius:0 6px 6px 0; }
+
+    /* HIGHLIGHTS */
+    .highlight-list { margin-top:40px; display:flex; flex-direction:column; gap:12px; }
+    .highlight-item { background:var(--white); border-radius:12px; padding:24px 24px 24px 20px; border:1px solid rgba(46,86,51,0.1); display:flex; align-items:flex-start; gap:16px; transition:transform 0.2s,border-color 0.2s; }
+    .highlight-item:hover { transform:translateX(4px); border-color:var(--brand); }
+    .hi-icon { font-size:24px; flex-shrink:0; margin-top:2px; }
+    .hi-text h3 { font-family:'Montserrat',sans-serif; font-size:15px; font-weight:700; color:var(--brand-deep); margin-bottom:5px; }
+    .hi-text p { font-size:13px; color:var(--text-mid); line-height:1.75; font-weight:300; }
+
+    /* HOUSE MODELS */
+    .model-grid { margin-top:40px; display:flex; flex-direction:column; gap:14px; }
+    .model-card { background:var(--white); border:1.5px solid rgba(46,86,51,0.12); border-radius:14px; overflow:hidden; transition:border-color 0.2s,transform 0.2s; }
+    .model-card:hover { border-color:var(--brand); transform:translateX(4px); }
+    .model-header { padding:14px 22px; display:flex; align-items:center; justify-content:space-between; }
+    .model-header.carry { background:var(--brand-mid); }
+    .model-header.new { background:var(--brand-deep); }
+    .model-header-name { font-family:'Montserrat',sans-serif; font-size:15px; font-weight:800; color:var(--white); }
+    .model-header-tag { font-family:'Montserrat',sans-serif; font-size:8px; font-weight:700; color:rgba(255,255,255,0.65); letter-spacing:1.5px; text-transform:uppercase; background:rgba(255,255,255,0.1); padding:4px 10px; border-radius:100px; }
+
+    /* HOUSE MODEL IMAGES */
+    .model-img-wrap { width:100%; background:var(--cream); border-bottom:1px solid rgba(46,86,51,0.08); display:flex; align-items:center; justify-content:center; padding:20px 20px 14px; overflow:hidden; }
+    .model-img-wrap img { width:100%; height:auto; max-height:260px; object-fit:contain; display:block; transition:transform 0.4s ease; }
+    .model-card:hover .model-img-wrap img { transform:scale(1.02); }
+    .model-no-img { width:100%; padding:32px 20px 24px; background:linear-gradient(135deg,var(--cream) 0%,var(--cream-dark) 100%); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:10px; border-bottom:1px solid rgba(46,86,51,0.08); }
+    .model-no-img .mni-icon { font-size:44px; }
+    .model-no-img .mni-txt { font-family:'Montserrat',sans-serif; font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--text-light); }
+
+    .model-body { padding:20px 22px; }
+    .model-specs { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:14px; }
+    .spec-pill { background:var(--cream); border-radius:8px; padding:10px 12px; }
+    .spec-label { font-family:'Montserrat',sans-serif; font-size:8px; font-weight:700; color:var(--text-light); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:3px; }
+    .spec-val { font-family:'Montserrat',sans-serif; font-size:13px; font-weight:700; color:var(--brand-deep); }
+    .model-note { font-size:12px; color:var(--text-mid); line-height:1.7; font-weight:300; padding:12px 14px; background:rgba(46,86,51,0.06); border-radius:8px; border-left:2px solid var(--brand); }
+
+    /* FINISHES */
+    .finishes-grid { margin-top:36px; display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+    .finish-item { background:var(--white); border:1px solid rgba(46,86,51,0.1); border-radius:10px; padding:16px 14px; }
+    .finish-icon { font-size:18px; margin-bottom:8px; }
+    .finish-name { font-family:'Montserrat',sans-serif; font-size:11px; font-weight:700; color:var(--brand-deep); margin-bottom:4px; }
+    .finish-desc { font-size:12px; color:var(--text-mid); line-height:1.6; font-weight:300; }
+
+    /* PRICING */
+    .pricing-card { background:var(--brand-deep); border-radius:14px; padding:32px 28px; margin-top:36px; position:relative; overflow:hidden; }
+    .pricing-card::before { content:''; position:absolute; inset:0; background-image:radial-gradient(circle,rgba(255,255,255,0.04) 1px,transparent 1px); background-size:20px 20px; }
+    .pricing-inner { position:relative; z-index:1; }
+    .pricing-row { display:flex; justify-content:space-between; align-items:center; padding:14px 0; border-bottom:1px solid rgba(255,255,255,0.08); }
+    .pricing-row:last-child { border-bottom:none; }
+    .pricing-label { font-family:'Montserrat',sans-serif; font-size:10px; font-weight:600; color:rgba(255,255,255,0.5); letter-spacing:1.5px; text-transform:uppercase; }
+    .pricing-val { font-family:'Montserrat',sans-serif; font-size:15px; font-weight:700; color:var(--white); text-align:right; }
+    .pricing-val.big { font-size:22px; color:var(--accent); }
+    .bank-row { display:flex; flex-wrap:wrap; gap:8px; margin-top:20px; }
+    .bank-pill { background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); color:rgba(255,255,255,0.8); font-family:'Montserrat',sans-serif; font-size:10px; font-weight:700; padding:7px 14px; border-radius:6px; letter-spacing:0.5px; }
+    .target-market { margin-top:20px; background:rgba(255,255,255,0.05); border-radius:10px; padding:16px 18px; }
+    .target-title { font-family:'Montserrat',sans-serif; font-size:9px; font-weight:700; color:rgba(255,255,255,0.4); letter-spacing:2px; text-transform:uppercase; margin-bottom:10px; }
+    .target-tags { display:flex; flex-wrap:wrap; gap:7px; }
+    .target-tag { font-size:12px; color:rgba(255,255,255,0.7); font-weight:300; background:rgba(255,255,255,0.07); padding:5px 12px; border-radius:100px; }
+
+    /* WHY INVEST */
+    .why-list { margin-top:40px; display:flex; flex-direction:column; gap:14px; }
+    .why-item { background:var(--white); border:1px solid rgba(46,86,51,0.1); border-radius:12px; padding:28px 24px; transition:border-color 0.25s,transform 0.25s; }
+    .why-item:hover { border-color:var(--brand); transform:translateX(4px); }
+    .why-num { font-family:'Montserrat',sans-serif; font-size:48px; font-weight:800; color:var(--cream-dark); line-height:1; margin-bottom:6px; }
+    .why-item h3 { font-family:'Montserrat',sans-serif; font-size:16px; font-weight:700; color:var(--brand-deep); margin-bottom:8px; }
+    .why-item p { font-size:13px; color:var(--text-mid); line-height:1.85; font-weight:300; }
+    .why-adv { display:inline-block; margin-top:12px; background:rgba(46,86,51,0.08); color:var(--brand); font-family:'Montserrat',sans-serif; font-size:9px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; padding:4px 12px; border-radius:100px; }
+
+    /* VISION */
+    .vision-list { margin-top:40px; display:flex; flex-direction:column; gap:12px; }
+    .vision-item { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:28px 24px; display:flex; align-items:flex-start; gap:18px; transition:background 0.2s,border-color 0.2s; }
+    .vision-item:hover { background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.2); }
+    .vision-em { font-size:28px; flex-shrink:0; }
+    .vision-item p { font-family:'Poppins',sans-serif; font-size:15px; font-weight:300; color:rgba(255,255,255,0.82); line-height:1.75; }
+
+    /* BROKER */
+    .broker-card { max-width:600px; margin:40px auto 0; background:var(--cream-dark); border-radius:14px; overflow:hidden; border:1px solid rgba(46,86,51,0.15); }
+    .broker-top { background:linear-gradient(140deg,var(--brand-deep),var(--brand)); padding:44px 32px 36px; text-align:center; position:relative; overflow:hidden; }
+    .broker-top::before { content:''; position:absolute; inset:0; background-image:radial-gradient(circle,rgba(255,255,255,0.04) 1px,transparent 1px); background-size:20px 20px; }
+    .broker-avatar { width:108px; height:108px; border-radius:50%; border:3px solid rgba(255,255,255,0.4); object-fit:cover; margin:0 auto 18px; display:block; position:relative; z-index:1; }
+    .broker-name { font-family:'Montserrat',sans-serif; font-size:22px; font-weight:800; color:var(--white); margin-bottom:6px; position:relative; z-index:1; }
+    .broker-title { font-family:'Montserrat',sans-serif; font-size:9px; font-weight:600; color:rgba(255,255,255,0.6); letter-spacing:2px; text-transform:uppercase; position:relative; z-index:1; }
+    .broker-body { padding:32px; }
+    .broker-quote { font-family:'Poppins',sans-serif; font-size:15px; font-style:italic; font-weight:300; color:var(--text); line-height:1.8; padding:24px; background:var(--white); border-radius:10px; border-left:3px solid var(--brand); }
+    .broker-creds { display:flex; gap:10px; margin-top:16px; flex-wrap:wrap; }
+    .broker-cred { flex:1; min-width:110px; background:var(--white); border-radius:10px; padding:18px 14px; text-align:center; border:1px solid rgba(46,86,51,0.12); }
+    .cred-num { font-family:'Montserrat',sans-serif; font-size:26px; font-weight:800; color:var(--brand); display:block; }
+    .cred-label { font-family:'Montserrat',sans-serif; font-size:8px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--text-light); }
+
+    /* FAQ */
+    .faq-list { margin-top:40px; display:flex; flex-direction:column; gap:10px; }
+    .faq-item { border:1.5px solid rgba(46,86,51,0.12); border-radius:12px; overflow:hidden; background:var(--white); }
+    .faq-btn { width:100%; text-align:left; padding:20px 22px; background:transparent; border:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:16px; }
+    .faq-btn:hover { background:rgba(46,86,51,0.04); }
+    .faq-btn .q { font-family:'Montserrat',sans-serif; font-size:14px; font-weight:700; color:var(--brand-deep); line-height:1.35; }
+    .faq-btn .arr { font-size:13px; color:var(--brand); flex-shrink:0; transition:transform 0.3s; }
+    .faq-answer { display:none; padding:0 22px 20px; background:var(--cream); }
+    .faq-answer p { font-size:13px; color:var(--text-mid); line-height:1.85; font-weight:300; }
+
+    /* FINAL CTA */
+    .final-cta { background:linear-gradient(155deg,var(--brand-deep),var(--brand)); padding:96px 24px; text-align:center; position:relative; overflow:hidden; }
+    .final-cta::before { content:''; position:absolute; inset:0; background-image:radial-gradient(circle,rgba(255,255,255,0.04) 1px,transparent 1px); background-size:28px 28px; }
+    .final-cta-inner { position:relative; z-index:1; max-width:560px; margin:0 auto; }
+    .final-cta h2 { font-family:'Montserrat',sans-serif; font-size:clamp(26px,5vw,44px); font-weight:800; color:var(--white); line-height:1.2; margin-bottom:16px; }
+    .final-cta h2 em { font-style:normal; font-weight:300; color:rgba(255,255,255,0.7); }
+    .final-cta p { font-size:15px; color:rgba(255,255,255,0.65); line-height:1.85; font-weight:300; margin-bottom:32px; }
+    .final-note { font-size:11px; color:rgba(255,255,255,0.28); margin-top:16px; }
+
+    /* FOOTER */
+    .footer { background:var(--brand-deep); padding:52px 24px; text-align:center; }
+    .footer-logo { font-family:'Montserrat',sans-serif; font-size:16px; font-weight:900; color:var(--white); letter-spacing:5px; margin-bottom:4px; }
+    .footer-tagline { font-family:'Poppins',sans-serif; font-size:13px; font-weight:300; color:rgba(255,255,255,0.5); margin-bottom:20px; }
+    .footer p { font-size:13px; color:rgba(255,255,255,0.38); margin-bottom:4px; }
+    .footer-rule { width:48px; height:1px; background:rgba(255,255,255,0.15); margin:20px auto; }
+    .footer-copy { font-size:11px; color:rgba(255,255,255,0.18); margin-top:6px; }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow glow-1"></div>
+  <div class="hero-glow glow-2"></div>
+  <div class="hero-inner">
+    <div class="hero-pill"><span class="dot"></span>Pre-Selling · Limited to 236 Homes · Tanza, Cavite<span class="dot"></span></div>
+    <div class="hero-logo-row">
+      <img src="https://d1yei2z3i6k35z.cloudfront.net/16484052/savia_logo_white.png" alt="Savia Parkway" style="height:80px;width:auto;" onerror="this.style.display='none';document.getElementById('logo-fb').style.display='block'"/>
+      <div id="logo-fb" style="display:none;font-family:'Montserrat',sans-serif;font-size:28px;font-weight:900;color:#fff;letter-spacing:4px;">SAVIA<br/><span style="font-size:11px;font-weight:500;letter-spacing:8px;opacity:0.6">PARKWAY</span></div>
+    </div>
+    <h1>Where <em>Elevated Living</em><br/>Meets Nature's Embrace</h1>
+    <p class="hero-sub">Filipino Modern Tropical · Low-Density · Tanza, Cavite</p>
+    <div class="hero-rule"></div>
+    <p class="hero-desc">Savia Parkway is Cavite's newest low-density township — a curated enclave of only 236 homes built around the belief that <em>she is beautiful</em>. More open space, more greenery, more life. Designed by an award-winning New York architecture firm and anchored in Filipino Modern Tropical values.</p>
+    <div class="hero-btns">
+      <a href="#" onclick="openModal(event)" class="btn-primary">Reserve Your Home</a>
+      <a href="#amenities" class="btn-outline">Explore Amenities</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><div class="scroll-line"></div>Discover</div>
+</section>
+
+<!-- ALERT BAR -->
+<div class="alert-bar">
+  <p>⚠ Pre-selling phase — only 236 units available. Starting at ₱3.5M. Prices are at their lowest and will not remain so for long.</p>
+</div>
+
+<!-- STATS -->
+<div class="stats-band">
+  <div class="stats-row">
+    <div class="stat-cell"><span class="stat-num">236</span><span class="stat-label">Exclusive Homes</span></div>
+    <div class="stat-cell"><span class="stat-num">10</span><span class="stat-label">Amenities</span></div>
+    <div class="stat-cell"><span class="stat-num">3.4</span><span class="stat-label">Hectares</span></div>
+    <div class="stat-cell"><span class="stat-num">6</span><span class="stat-label">House Models</span></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     AD VIDEO — placed right after stats for
+     maximum early-page engagement
+     ══════════════════════════════════════════════ -->
+<div class="video-section">
+  <div class="video-section-inner">
+    <span class="video-eyebrow">✦ Now Showing</span>
+    <h2 class="video-title">See Savia Parkway <em>Come to Life</em></h2>
+    <p class="video-subtitle">Watch our official community video and picture yourself living here.</p>
+
+    <div class="video-frame">
+      <video
+        controls
+        playsinline
+        preload="metadata"
+        poster=""
+      >
+        <source src="SaviaFB1.mp4" type="video/mp4"/>
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <div class="video-cta-row">
+      <span class="video-badge"><span class="vb-dot"></span>Pre-Selling Now</span>
+      <span class="video-badge"><span class="vb-dot"></span>Starting ₱3.5M</span>
+      <span class="video-badge"><span class="vb-dot"></span>Only 236 Units</span>
+    </div>
+  </div>
+</div>
+
+<!-- INTRO / NAME MEANING -->
+<section class="sec" style="background:var(--white);">
+  <div class="wrap">
+    <span class="eyebrow">A Name With Meaning</span>
+    <h2 class="sec-title">More Than a Name —<br/><em>A Promise</em></h2>
+    <div class="rule"></div>
+    <div class="intro-body">
+      <p>Every detail of Savia Parkway — from its name to its design — was chosen with intention. "Savia" is an Arabic-Latin word meaning <strong>she is beautiful</strong>. "Parkway" reflects its abundance of parks and walkable spaces throughout the community.</p>
+      <div class="name-meaning">
+        <div class="name-meaning-inner">
+          <div class="name-row">
+            <div class="name-part">
+              <div class="name-word">SAVIA</div>
+              <div class="name-lang">Arabic · Latin</div>
+              <div class="name-def">"She is beautiful" — a declaration of elegance, grace, and timeless worth.</div>
+            </div>
+            <div class="name-part">
+              <div class="name-word">PARKWAY</div>
+              <div class="name-lang">English</div>
+              <div class="name-def">An abundance of parks, green paths, and walkable spaces woven into daily life.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p style="margin-top:24px;">Designed by <strong>ALAW</strong> — an award-winning international architecture and interior design firm based in New York — every home and shared space at Savia reflects a partnership between global design excellence and Filipino identity.</p>
+      <div class="quote-block">
+        <p>A truly exceptional home is more than four walls — it is the landscape of a life well-lived, surrounded by the people and places that matter most.</p>
+        <footer>— Savia Parkway Design Philosophy</footer>
+      </div>
+      <div style="text-align:center;margin-top:32px;">
+        <a href="#" onclick="openModal(event)" class="btn-green">Schedule a Free Consultation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON WITH PLEASANT FIELDS -->
+<section class="sec" style="background:var(--cream);">
+  <div class="wrap">
+    <span class="eyebrow">Savia vs. Pleasant Fields</span>
+    <h2 class="sec-title">Bigger Lot. Fewer Homes.<br/><em>More of Everything That Matters.</em></h2>
+    <div class="rule"></div>
+    <p class="lead">Savia Parkway builds on the success of Pleasant Fields — while offering more space, more greenery, and a distinctly Filipino Modern Tropical character.</p>
+    <div class="compare-table">
+      <div class="compare-header">
+        <div>Feature</div>
+        <div>Pleasant Fields</div>
+        <div>Savia Parkway</div>
+      </div>
+      <div class="compare-row"><div>Total Area</div><div>2.7 hectares</div><div class="highlight">3.4 hectares</div></div>
+      <div class="compare-row"><div>Total Units</div><div>237 units</div><div class="highlight">236 units</div></div>
+      <div class="compare-row"><div>Density</div><div>Standard</div><div class="highlight">Lower — more open space per home</div></div>
+      <div class="compare-row"><div>Theme</div><div>American Inspired</div><div class="highlight">Filipino Modern Tropical</div></div>
+      <div class="compare-row"><div>House Models</div><div>3 models</div><div class="highlight">6 models</div></div>
+      <div class="compare-row"><div>Amenities</div><div>10</div><div class="highlight">10 (enhanced)</div></div>
+      <div class="compare-row"><div>Boulevard Width</div><div>14 m entrance</div><div class="highlight">16 m boulevard</div></div>
+      <div class="compare-row"><div>Trellis on Units</div><div>No</div><div class="highlight">Yes — all units</div></div>
+    </div>
+    <div style="margin-top:16px;background:rgba(46,86,51,0.06);border:1px solid rgba(46,86,51,0.15);border-radius:10px;padding:16px 20px;text-align:center;">
+      <p style="font-size:13px;color:var(--text-mid);font-weight:300;line-height:1.7;">Savia Parkway is located just <strong style="color:var(--brand-deep);">1.2 km away</strong> from Pleasant Fields — a 3 to 5 minute drive. Model houses for Savia will initially be viewable at the Pleasant Fields site.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND REVEAL / BRAND PILLARS -->
+<section class="brand-reveal">
+  <div class="brand-reveal-inner">
+    <span class="brand-label">Introducing Cavite's Newest Filipino Modern Tropical Township</span>
+    <div class="big-name">SAVIA</div>
+    <div class="parkway-word">PARKWAY</div>
+    <div class="brand-tagline">Pre-Selling · Tanza, Cavite · 236 Homes · Starting ₱3.5M</div>
+    <div class="brand-rule"></div>
+    <p>Savia Parkway is not just a subdivision — it is a curated community built around five brand pillars that define how you live, connect, and thrive.</p>
+    <div class="pillars-grid">
+      <div class="pillar-item"><div class="pillar-icon">✏️</div><div class="pillar-name">Thoughtful Design</div><div class="pillar-desc">Every detail — from walkable paths to pocket gardens — was carefully planned with ALAW, an award-winning New York architecture firm.</div></div>
+      <div class="pillar-item"><div class="pillar-icon">🔐</div><div class="pillar-name">Secured Living</div><div class="pillar-desc">RFID-gated entrance, 24/7 security, and a controlled-access environment so your family lives with complete peace of mind.</div></div>
+      <div class="pillar-item"><div class="pillar-icon">🏗️</div><div class="pillar-name">Reliable Quality</div><div class="pillar-desc">UPVC windows and doors, quality finishes throughout — built to exceed Philippine building code and stand the test of time.</div></div>
+      <div class="pillar-item"><div class="pillar-icon">🌿</div><div class="pillar-name">Greenery &amp; Community</div><div class="pillar-desc">Low density means more open space, courtyard parks, and a community that knows your name — from Christmas parties to morning yoga.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- KEY HIGHLIGHTS -->
+<section class="sec" style="background:var(--white);">
+  <div class="wrap">
+    <span class="eyebrow">What Makes Savia Parkway Different</span>
+    <h2 class="sec-title">Key <em>Features</em> at a Glance</h2>
+    <div class="rule"></div>
+    <p class="lead">Every detail of Savia Parkway was carefully considered — from the size of the community to the quality of its amenities and its location within Cavite's growth corridor.</p>
+    <div class="highlight-list">
+      <div class="highlight-item"><div class="hi-icon">🏡</div><div class="hi-text"><h3>Low-Density — Only 236 Homes on 3.4 Hectares</h3><p>Fewer homes on more land means wider lots, more open space, quieter streets, and a stronger sense of community. 3.4 hectares for just 236 units is a rarity in Cavite.</p></div></div>
+      <div class="highlight-item"><div class="hi-icon">🛣️</div><div class="hi-text"><h3>16-Meter Wide Boulevard</h3><p>A grand 16-meter boulevard with two lanes in each direction runs through the community — wider than Pleasant Fields' entrance, built for safety, comfort, and visual grandeur.</p></div></div>
+      <div class="highlight-item"><div class="hi-icon">📍</div><div class="hi-text"><h3>Only 120 Meters from the Main Highway</h3><p>Located in Barangay Bucal, Tanza — just 120 meters (about a 1-minute walk) from the main road. No winding access roads, no difficult navigation.</p></div></div>
+      <div class="highlight-item"><div class="hi-icon">🌿</div><div class="hi-text"><h3>Filipino Modern Tropical Theme</h3><p>The community's design celebrates Filipino identity — with trellis-adorned facades, planting strips, pocket gardens, and a tropical aesthetic that feels both modern and deeply rooted.</p></div></div>
+      <div class="highlight-item"><div class="hi-icon">💳</div><div class="hi-text"><h3>Flexible Payment Terms</h3><p>10% down payment, 90% through Pag-IBIG, BPI, BDO, Landbank, or RCBC bank financing — amortization up to 30 years. Fast turnover option available with the 3-month DP scheme.</p></div></div>
+      <div class="highlight-item"><div class="hi-icon">🔐</div><div class="hi-text"><h3>RFID-Gated Secured Community</h3><p>A controlled-access village with RFID gates, a guardhouse, and security personnel — giving residents and their families true privacy and peace of mind around the clock.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- AMENITIES -->
+<section class="sec" style="background:var(--cream);" id="amenities">
+  <div class="wrap">
+    <span class="eyebrow">Community Amenities</span>
+    <h2 class="sec-title">10 World-Class Amenities,<br/><em>Curated for Your Lifestyle</em></h2>
+    <div class="rule"></div>
+    <p class="lead">Every amenity at Savia Parkway was deliberately chosen to enhance wellbeing, strengthen community bonds, and elevate daily life for every member of the family.</p>
+    <div class="amenity-stack">
+      <div class="amenity-item"><img src="amenity_1a.png" alt="Village Entrance"/><div class="amenity-overlay"><div class="am-top"><div class="am-icon">🏛️</div><div class="am-name">Village Entrance with RFID Gate</div></div><div class="am-desc">The 16-meter wide boulevard leads to a grand gated entrance equipped with RFID access, a guardhouse, and security personnel — monitoring all residents, visitors, and vehicles 24/7.</div><div class="am-advantage">✦ RFID-controlled access &nbsp;·&nbsp; ✦ Crime deterrence &nbsp;·&nbsp; ✦ Privacy for residents &nbsp;·&nbsp; ✦ Peace of mind</div></div></div>
+      <div class="amenity-item"><img src="amenity_1b.png" alt="Community Service Center"/><div class="amenity-overlay"><div class="am-top"><div class="am-icon">🏢</div><div class="am-name">Community Service Center</div></div><div class="am-desc">A central facility housing a water refilling station, convenience store, and laundry service — giving residents access to everyday essentials without ever leaving the community.</div><div class="am-advantage">✦ Water refilling &nbsp;·&nbsp; ✦ Convenience store &nbsp;·&nbsp; ✦ Laundry service &nbsp;·&nbsp; ✦ Inclusive for all residents</div></div></div>
+      <div class="amenity-item"><img src="amenity_2a.png" alt="Children's Playground"/><div class="amenity-overlay"><div class="am-top"><div class="am-icon">🛝</div><div class="am-name">Children's Playground</div></div><div class="am-desc">A designated outdoor space where school-age children can safely play, explore, and engage in physical activities — slides, swings, climbing frames, and open areas in a secure environment.</div><div class="am-advantage">✦ Promotes physical activity &nbsp;·&nbsp; ✦ Safe play environment &nbsp;·&nbsp; ✦ Encourages social interaction &nbsp;·&nbsp; ✦ Convenience for parents</div></div></div>
+      <div class="amenity-item"><img src="amenity_2b.png" alt="Community Hall"/><div class="amenity-overlay"><div class="am-top"><div class="am-icon">🏟️</div><div class="am-name">Community Hall + Great Lawn</div></div><div class="am-desc">A shared indoor venue for gatherings, meetings, and events — paired with the Great Lawn, a wide open outdoor space for community celebrations like Christmas parties, Halloween events, and more.</div><div class="am-advantage">✦ Multi-purpose events space &nbsp;·&nbsp; ✦ Strengthens social connections &nbsp;·&nbsp; ✦ Enhances sense of belonging</div></div></div>
+      <div class="amenity-item"><img src="amenity_3a.png" alt="Pickleball Park"/><div class="amenity-overlay"><div class="am-top"><div class="am-icon">🏸</div><div class="am-name">Pickleball Park</div></div><div class="am-desc">A dedicated recreational area featuring courts for pickleball — a fast-growing paddle sport that combines elements of tennis, badminton, and table tennis. Suitable for all ages and skill levels.</div><div class="am-advantage">✦ Accessible for all ages &nbsp;·&nbsp; ✦ Supports an active lifestyle &nbsp;·&nbsp; ✦ Social recreation &nbsp;·&nbsp; ✦ One-of-a-kind in the area</div></div></div>
+      <div class="amenity-item"><img src="amenity_3b.png" alt="Wellness &amp; Yoga Park"/><div class="amenity-overlay"><div class="am-top"><div class="am-icon">🧘</div><div class="am-name">Wellness &amp; Yoga Park</div></div><div class="am-desc">A peaceful, open space designed for relaxation, meditation, yoga, and light physical activities. Features green areas, walking paths, and quiet zones that promote mental and physical well-being.</div><div class="am-advantage">✦ Promotes mental well-being &nbsp;·&nbsp; ✦ Encourages healthy lifestyle &nbsp;·&nbsp; ✦ Reduces stress &nbsp;·&nbsp; ✦ Enhances daily routine</div></div></div>
+      <div class="amenity-item"><img src="amenity_4a.png" alt="Dog Park"/><div class="amenity-overlay"><div class="am-top"><div class="am-icon">🐕</div><div class="am-name">Dog Park</div></div><div class="am-desc">A secured outdoor area where residents can bring their dogs to play, exercise, and socialize freely — a rare amenity in Cavite subdivisions, designed with fur parents in mind.</div><div class="am-advantage">✦ Safe space for pets &nbsp;·&nbsp; ✦ Convenience for fur parents &nbsp;·&nbsp; ✦ Keeps community spaces cleaner &nbsp;·&nbsp; ✦ Rare in subdivisions</div></div></div>
+      <div class="amenity-item"><img src="amenity_4b.png" alt="Sandbox &amp; Playground Park"/><div class="amenity-overlay"><div class="am-top"><div class="am-icon">🏖️</div><div class="am-name">Sandbox &amp; Playground Park</div></div><div class="am-desc">One of three courtyard parks — combining traditional play structures with sand play areas for imaginative, sensory play. Fosters creativity, exploration, and outdoor fun in a supervised setting.</div><div class="am-advantage">✦ Enhances creativity &nbsp;·&nbsp; ✦ Supports sensory development &nbsp;·&nbsp; ✦ Promotes outdoor activity &nbsp;·&nbsp; ✦ Encourages social play</div></div></div>
+      <div class="amenity-item"><img src="amenity_5a.png" alt="Toddler Playground"/><div class="amenity-overlay"><div class="am-top"><div class="am-icon">🍼</div><div class="am-name">Toddler Playground</div></div><div class="am-desc">A specially designed play area for very young children — smaller, safer equipment tailored to their age, size, and developmental needs. Parents can relax knowing their toddlers are safe.</div><div class="am-advantage">✦ Age-appropriate safety &nbsp;·&nbsp; ✦ Peace of mind for parents &nbsp;·&nbsp; ✦ Encourages early socialization &nbsp;·&nbsp; ✦ Supports early development</div></div></div>
+    </div>
+    <div style="background:var(--white);border-radius:12px;padding:26px 24px;display:flex;align-items:flex-start;gap:18px;border:1px solid rgba(46,86,51,0.1);margin-top:12px;">
+      <div style="font-size:30px;flex-shrink:0;">🌿</div>
+      <div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:16px;font-weight:700;color:var(--brand-deep);margin-bottom:6px;">Three Courtyard Parks + Open Green Spaces</div>
+        <div style="font-size:13px;color:var(--text-mid);line-height:1.75;font-weight:300;">Three dedicated courtyard parks — with planting strips, pocket gardens, and landscaped corridors — are woven throughout the development. Low-density design means significantly more nature and space per family than comparable Cavite subdivisions.</div>
+        <div style="margin-top:10px;font-size:11px;color:var(--brand-light);font-weight:600;">✦ More nature, more privacy, and a higher resale premium</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:40px;">
+      <p style="font-family:'Poppins',sans-serif;font-size:15px;font-style:italic;color:var(--brand);margin-bottom:20px;font-weight:300;">"These amenities are not extras — they are the reason Savia Parkway is worth considerably more than its asking price."</p>
+      <a href="#" onclick="openModal(event)" class="btn-green">Inquire About Pricing &amp; Availability</a>
+    </div>
+  </div>
+</section>
+
+<!-- HOUSE MODELS -->
+<section class="sec" style="background:var(--white);" id="models">
+  <div class="wrap">
+    <span class="eyebrow">House Models</span>
+    <h2 class="sec-title">6 Home Designs.<br/><em>One for Every Family.</em></h2>
+    <div class="rule"></div>
+    <p class="lead">Savia Parkway offers 6 thoughtfully designed home models — 3 familiar carry-over designs (now upgraded with trellis) and 3 exciting new additions. All units feature UPVC windows &amp; doors, painted walls, tiled ground floors, metal railings, and trellis on the facade.</p>
+
+    <div class="model-grid">
+
+      <div class="model-card">
+        <div class="model-header carry">
+          <span class="model-header-name">Narra</span>
+          <span class="model-header-tag">Carry-Over · Updated</span>
+        </div>
+        <div class="model-img-wrap">
+          <img src="Narra.png" alt="Narra House Model" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="model-no-img" style="display:none"><span class="mni-icon">🏠</span><span class="mni-txt">Narra · 2 BR · 46 sqm</span></div>
+        </div>
+        <div class="model-body">
+          <div class="model-specs">
+            <div class="spec-pill"><div class="spec-label">Bedrooms</div><div class="spec-val">2 BR</div></div>
+            <div class="spec-pill"><div class="spec-label">Toilet &amp; Bath</div><div class="spec-val">1</div></div>
+            <div class="spec-pill"><div class="spec-label">Floor Area</div><div class="spec-val">46 sqm</div></div>
+            <div class="spec-pill"><div class="spec-label">Type</div><div class="spec-val">Townhouse</div></div>
+          </div>
+          <div class="model-note">Based on Pleasant Fields' Nixon model — now with added trellis and an improved entry design with steps at the front for better parcel access and maximized sidewalk space.</div>
+        </div>
+      </div>
+
+      <div class="model-card">
+        <div class="model-header carry">
+          <span class="model-header-name">Kamagong</span>
+          <span class="model-header-tag">Carry-Over · Updated</span>
+        </div>
+        <div class="model-img-wrap">
+          <img src="Kamagong.png" alt="Kamagong House Model" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="model-no-img" style="display:none"><span class="mni-icon">🏠</span><span class="mni-txt">Kamagong · 2 BR · 49 sqm</span></div>
+        </div>
+        <div class="model-body">
+          <div class="model-specs">
+            <div class="spec-pill"><div class="spec-label">Bedrooms</div><div class="spec-val">2 BR</div></div>
+            <div class="spec-pill"><div class="spec-label">Toilet &amp; Bath</div><div class="spec-val">1.5</div></div>
+            <div class="spec-pill"><div class="spec-label">Floor Area</div><div class="spec-val">49 sqm</div></div>
+            <div class="spec-pill"><div class="spec-label">Type</div><div class="spec-val">Townhouse</div></div>
+          </div>
+          <div class="model-note">Based on Pleasant Fields' Kennedy model — upgraded with trellis on the facade. Same beloved layout, now with a Filipino Modern Tropical exterior.</div>
+        </div>
+      </div>
+
+      <div class="model-card">
+        <div class="model-header carry">
+          <span class="model-header-name">Lauan</span>
+          <span class="model-header-tag">Carry-Over · Updated</span>
+        </div>
+        <div class="model-img-wrap">
+          <img src="Lauan.png" alt="Lauan House Model" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="model-no-img" style="display:none"><span class="mni-icon">🏠</span><span class="mni-txt">Lauan · 3 BR · 60 sqm</span></div>
+        </div>
+        <div class="model-body">
+          <div class="model-specs">
+            <div class="spec-pill"><div class="spec-label">Bedrooms</div><div class="spec-val">3 BR</div></div>
+            <div class="spec-pill"><div class="spec-label">Toilet &amp; Bath</div><div class="spec-val">1.5</div></div>
+            <div class="spec-pill"><div class="spec-label">Floor Area</div><div class="spec-val">60 sqm</div></div>
+            <div class="spec-pill"><div class="spec-label">Type</div><div class="spec-val">Townhouse</div></div>
+          </div>
+          <div class="model-note">Based on Pleasant Fields' Lincoln model — now with trellis. Three bedrooms at an entry-friendly price point, perfect for growing families.</div>
+        </div>
+      </div>
+
+      <div class="model-card">
+        <div class="model-header new">
+          <span class="model-header-name">Acacia</span>
+          <span class="model-header-tag">New Model</span>
+        </div>
+        <div class="model-img-wrap">
+          <img src="Acacia.png" alt="Acacia House Model" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="model-no-img" style="display:none"><span class="mni-icon">🏡</span><span class="mni-txt">Acacia · 2–3 BR · 60–75 sqm</span></div>
+        </div>
+        <div class="model-body">
+          <div class="model-specs">
+            <div class="spec-pill"><div class="spec-label">Bedrooms</div><div class="spec-val">2–3 BR</div></div>
+            <div class="spec-pill"><div class="spec-label">Toilet &amp; Bath</div><div class="spec-val">1.5</div></div>
+            <div class="spec-pill"><div class="spec-label">Floor Area</div><div class="spec-val">60–75 sqm</div></div>
+            <div class="spec-pill"><div class="spec-label">Feature</div><div class="spec-val">Open Ceiling</div></div>
+          </div>
+          <div class="model-note">A stunning new model with an open ceiling on the second floor, creating a dramatic high-ceiling feel. Available in a 2BR type (with walk-in closet) and a 3BR type with a provision for a third bedroom. Floor area varies by lot.</div>
+        </div>
+      </div>
+
+      <div class="model-card">
+        <div class="model-header new">
+          <span class="model-header-name">Banaba</span>
+          <span class="model-header-tag">New Model · Rental-Friendly</span>
+        </div>
+        <div class="model-img-wrap">
+          <img src="Banaba.png" alt="Banaba House Model" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="model-no-img" style="display:none"><span class="mni-icon">🏡</span><span class="mni-txt">Banaba · 3 BR · 77 sqm</span></div>
+        </div>
+        <div class="model-body">
+          <div class="model-specs">
+            <div class="spec-pill"><div class="spec-label">Bedrooms</div><div class="spec-val">3 BR</div></div>
+            <div class="spec-pill"><div class="spec-label">Toilet &amp; Bath</div><div class="spec-val">2</div></div>
+            <div class="spec-pill"><div class="spec-label">Floor Area</div><div class="spec-val">77 sqm</div></div>
+            <div class="spec-pill"><div class="spec-label">Carport</div><div class="spec-val">1</div></div>
+          </div>
+          <div class="model-note">The only model with a separate ground-floor bedroom with its own entrance and toilet &amp; bath — perfect for rental income, multigenerational living, or accommodating persons with disabilities.</div>
+        </div>
+      </div>
+
+      <div class="model-card">
+        <div class="model-header new">
+          <span class="model-header-name">Dao</span>
+          <span class="model-header-tag">New Model · Flagship</span>
+        </div>
+        <div class="model-img-wrap">
+          <img src="Dao.png" alt="Dao House Model" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="model-no-img" style="display:none"><span class="mni-icon">🏡</span><span class="mni-txt">Dao · 3 BR + Loft · 92 sqm</span></div>
+        </div>
+        <div class="model-body">
+          <div class="model-specs">
+            <div class="spec-pill"><div class="spec-label">Bedrooms</div><div class="spec-val">3 BR + Loft</div></div>
+            <div class="spec-pill"><div class="spec-label">Toilet &amp; Bath</div><div class="spec-val">3</div></div>
+            <div class="spec-pill"><div class="spec-label">Floor Area</div><div class="spec-val">92 sqm</div></div>
+            <div class="spec-pill"><div class="spec-label">Carport</div><div class="spec-val">2 Cars</div></div>
+          </div>
+          <div class="model-note">The flagship 3-storey model with a loft — the only unit with 3 toilet &amp; baths, 2 carports, a balcony, and a provision for a 4th bedroom. Front and rear access makes it one of the most versatile offerings at Savia.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:36px;">
+      <div style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--brand);text-align:center;margin-bottom:20px;">Standard House Finishes — All Models</div>
+      <div class="finishes-grid">
+        <div class="finish-item"><div class="finish-icon">🚪</div><div class="finish-name">UPVC Doors &amp; Windows</div><div class="finish-desc">Painted panel main door; UPVC interior doors; UPVC sliding and awning-type windows throughout.</div></div>
+        <div class="finish-item"><div class="finish-icon">🪜</div><div class="finish-name">Metal Works &amp; Railings</div><div class="finish-desc">Metal railings on stairs and balconies; trellis on all front patios — a defining feature of the Filipino Modern Tropical aesthetic.</div></div>
+        <div class="finish-item"><div class="finish-icon">🏠</div><div class="finish-name">Walls &amp; Ceiling</div><div class="finish-desc">Painted interior and exterior walls, ceiling, and bedroom partitions. Clean, ready-to-move-in finish.</div></div>
+        <div class="finish-item"><div class="finish-icon">🪟</div><div class="finish-name">Flooring</div><div class="finish-desc">Tiled ground floor; plain cement upper floors and stairs; cemented front patio and garage area.</div></div>
+        <div class="finish-item"><div class="finish-icon">🚿</div><div class="finish-name">Plumbing Fixtures</div><div class="finish-desc">Includes shower, lavatory, and faucets — ready for immediate use upon turnover.</div></div>
+        <div class="finish-item"><div class="finish-icon">🗄️</div><div class="finish-name">Kitchen Cabinet</div><div class="finish-desc">With synthetic countertop. Select unit types include extra storage provisions.</div></div>
+      </div>
+    </div>
+    <div style="margin-top:20px;text-align:center;">
+      <a href="#" onclick="openModal(event)" class="btn-green">Request Floor Plans &amp; Full Specs</a>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING & PAYMENT -->
+<section class="sec" style="background:var(--cream);" id="pricing">
+  <div class="wrap">
+    <span class="eyebrow">Pricing &amp; Payment Terms</span>
+    <h2 class="sec-title">Accessible Pricing,<br/><em>Flexible Payment Options</em></h2>
+    <div class="rule"></div>
+    <p class="lead">Savia Parkway starts at ₱3.5M — offering real value for a premium, low-density community. With multiple payment pathways, there is a plan that fits your income and timeline.</p>
+    <div class="pricing-card">
+      <div class="pricing-inner">
+        <div class="pricing-row"><span class="pricing-label">Starting Price</span><span class="pricing-val big">₱3.5M and up</span></div>
+        <div class="pricing-row"><span class="pricing-label">Down Payment</span><span class="pricing-val">10% of Total Contract Price</span></div>
+        <div class="pricing-row"><span class="pricing-label">Bank Financing</span><span class="pricing-val">90% — up to 30 years</span></div>
+        <div class="pricing-row"><span class="pricing-label">DP Discount</span><span class="pricing-val">Up to 5% on select units</span></div>
+        <div class="pricing-row"><span class="pricing-label">Fast Turnover Option</span><span class="pricing-val">3-month DP scheme available</span></div>
+        <div class="pricing-row"><span class="pricing-label">Reservation Fee</span><span class="pricing-val">Contact broker for details</span></div>
+        <div style="margin-top:20px;">
+          <div class="target-title">Partnered Banks</div>
+          <div class="bank-row"><span class="bank-pill">BPI</span><span class="bank-pill">BDO</span><span class="bank-pill">Landbank</span><span class="bank-pill">RCBC</span></div>
+          <div style="margin-top:12px;font-size:12px;color:rgba(255,255,255,0.45);line-height:1.7;font-weight:300;">Individual bank applications outside the partner banks are accepted, though approval may be lower than the full 90% loanable amount — resulting in a loan difference to be settled by the buyer.</div>
+        </div>
+        <div class="target-market">
+          <div class="target-title">Who Is This For?</div>
+          <div class="target-tags">
+            <span class="target-tag">👔 Mid-Level Professionals</span>
+            <span class="target-tag">🏭 Entrepreneurs</span>
+            <span class="target-tag">✈️ OFWs</span>
+            <span class="target-tag">📅 Age 28–45</span>
+            <span class="target-tag">💰 ₱80K–₱120K Monthly Income</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:20px;background:rgba(46,86,51,0.06);border:1px solid rgba(46,86,51,0.15);border-radius:10px;padding:16px 20px;text-align:center;">
+      <p style="font-size:13px;color:var(--text-mid);font-weight:300;line-height:1.7;">💡 <strong style="color:var(--brand-deep);font-weight:700;">Not sure which unit or payment scheme fits you?</strong> Our broker will walk you through all available models, lot positions, and sample computations — completely free and with no pressure.</p>
+    </div>
+    <div style="text-align:center;margin-top:24px;">
+      <a href="#" onclick="openModal(event)" class="btn-green">Get My Sample Computation</a>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="sec" style="background:var(--white);" id="location">
+  <div class="wrap">
+    <span class="eyebrow">Location &amp; Accessibility</span>
+    <h2 class="sec-title">Perfectly Located.<br/><em>Easily Accessible.</em></h2>
+    <div class="rule"></div>
+    <p class="lead">Savia Parkway is located in Barangay Bucal, Tanza, Cavite — just 120 meters from the main highway and about 45 minutes from Metro Manila. One of the most accessible communities in the corridor.</p>
+  </div>
+  <div style="max-width:640px;margin:32px auto 0;padding:0 24px;">
+    <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:20px;">
+      <div style="background:var(--cream);border-radius:10px;padding:16px 18px;display:flex;align-items:flex-start;gap:14px;border:1px solid var(--cream-dark);">
+        <span style="font-size:20px;flex-shrink:0;">🚗</span>
+        <div><div style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;color:var(--brand-deep);margin-bottom:4px;text-transform:uppercase;letter-spacing:1px;">By Private Car — 45 min to 1 hour</div><p style="font-size:13px;color:var(--text-mid);line-height:1.7;font-weight:300;">Via CAVITEX (operational) or CALAX (ongoing). Aguinaldo Highway and Antero Soriano Highway also provide direct routes. Traffic can affect travel time but new infrastructure continues to improve accessibility.</p></div>
+      </div>
+      <div style="background:var(--cream);border-radius:10px;padding:16px 18px;display:flex;align-items:flex-start;gap:14px;border:1px solid var(--cream-dark);">
+        <span style="font-size:20px;flex-shrink:0;">🚌</span>
+        <div><div style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;color:var(--brand-deep);margin-bottom:4px;text-transform:uppercase;letter-spacing:1px;">By Public Transport</div><p style="font-size:13px;color:var(--text-mid);line-height:1.7;font-weight:300;">Buses and UV Express from Pasay, Bacoor, or Imus serve Cavite. The upcoming LRT-1 Bataan-Cavite extension and PITX transport hub further improve long-term connectivity to Metro Manila.</p></div>
+      </div>
+    </div>
+    <div style="background:var(--cream);border-radius:12px;padding:24px;border:1px solid var(--cream-dark);margin-bottom:20px;">
+      <div style="font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--brand);margin-bottom:16px;">📍 Nearby Points of Interest</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+        <div><div style="font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-mid);margin-bottom:6px;">🎓 Schools</div><div style="font-size:12px;color:var(--text-mid);font-weight:300;line-height:1.8;">CALA Institute of the Philippines (120m away)<br/>Tanza Elementary School<br/>Tanza National High School</div></div>
+        <div><div style="font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-mid);margin-bottom:6px;">🛒 Shopping</div><div style="font-size:12px;color:var(--text-mid);font-weight:300;line-height:1.8;">SM City Tanza<br/>SM Rosario<br/>Vista Mall Tanza<br/>Robinson's Gentry</div></div>
+        <div style="margin-top:8px;"><div style="font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-mid);margin-bottom:6px;">🏥 Healthcare</div><div style="font-size:12px;color:var(--text-mid);font-weight:300;line-height:1.8;">Multiple hospitals within easy reach of Tanza</div></div>
+        <div style="margin-top:8px;"><div style="font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-mid);margin-bottom:6px;">🚉 Transport Hubs</div><div style="font-size:12px;color:var(--text-mid);font-weight:300;line-height:1.8;">PITX Terminal<br/>NAIA<br/>Future LRT-1 Ext.</div></div>
+      </div>
+    </div>
+    <div style="background:var(--brand-deep);border-radius:10px;padding:16px 20px;margin-bottom:24px;">
+      <div style="font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:8px;">🏗️ Ongoing Infrastructure = Rising Property Value</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.7);line-height:1.75;font-weight:300;">CALAX, Tanza Bypass Road, LRT-1 Bataan-Cavite Extension, and major commercial developments like SMDC and Nuvali Evo City are all in progress around Tanza. Every infrastructure milestone adds value to your Savia Parkway investment.</div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+      <div style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--brand);">📍 Barangay Bucal, Tanza, Cavite</div>
+      <a href="https://maps.google.com/?q=Tanza,Cavite,Philippines" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:7px;font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--brand);border:1.5px solid var(--brand);padding:7px 16px;border-radius:100px;transition:background 0.2s,color 0.2s;" onmouseover="this.style.background='#2e5633';this.style.color='white'" onmouseout="this.style.background='transparent';this.style.color='#2e5633'">Open in Maps &nbsp;↗</a>
+    </div>
+    <div style="border-radius:14px;overflow:hidden;border:2px solid var(--cream-dark);box-shadow:0 8px 32px rgba(46,86,51,0.1);">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30934.45!2d120.8437!3d14.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd612851ded029%3A0x9a0f4cd3eb22df96!2sTanza%2C%20Cavite!5e0!3m2!1sen!2sph!4v1700000000000!5m2!1sen!2sph" width="100%" height="380" style="border:0;display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Savia Parkway — Tanza, Cavite"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- WHY INVEST -->
+<section class="sec" style="background:var(--cream);">
+  <div class="wrap">
+    <span class="eyebrow">The Investment Case</span>
+    <h2 class="sec-title">Five Compelling Reasons<br/>to <em>Invest Today</em></h2>
+    <div class="rule"></div>
+    <div class="why-list">
+      <div class="why-item"><div class="why-num">01</div><h3>Pre-Selling Price — The Lowest It Will Ever Be</h3><p>Starting at ₱3.5M, Savia Parkway is in its pre-selling phase — the single best moment to enter. Every construction milestone pushes the market value higher. Buyers who reserve now consistently see the greatest capital appreciation by turnover.</p><span class="why-adv">Pre-selling properties in Cavite have historically appreciated 20–50% by turnover</span></div>
+      <div class="why-item"><div class="why-num">02</div><h3>Flexible, Accessible Payment Terms</h3><p>10% down payment, 90% financed through BPI, BDO, Landbank, or RCBC for up to 30 years. A fast-turnover 3-month DP option is also available. Our broker will find the scheme that works best for your income and goals — at no extra cost to you.</p><span class="why-adv">Multiple pathways to ownership — Pag-IBIG, bank, or in-house</span></div>
+      <div class="why-item"><div class="why-num">03</div><h3>Low-Density — Only 236 Homes on 3.4 Hectares</h3><p>Only 236 homes means wider lots, more greenery, greater privacy, and quieter streets — and a significantly stronger resale value today and long into the future. Low-density communities consistently outperform in appreciation.</p><span class="why-adv">Low-density communities command premium resale premiums</span></div>
+      <div class="why-item"><div class="why-num">04</div><h3>Tanza, Cavite — One of the South's Fastest-Growing Corridors</h3><p>CALAX, LRT-1 extension, Tanza Bypass Road, new commercial developments — all surrounding Savia. Every infrastructure project in the area directly adds value to your investment. The trajectory is unmistakable.</p><span class="why-adv">Tanza is among the Philippines' fastest-appreciating municipalities</span></div>
+      <div class="why-item"><div class="why-num">05</div><h3>Expert Guidance — From Inquiry to Turnover</h3><p>Our licensed broker and the Inner SPARC Realty team handle your documentation, coordinate your financing, and ensure a seamless process from the moment you reserve to the day you receive your keys.</p><span class="why-adv">Licensed broker · 1,500+ successfully closed transactions</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- VISION -->
+<section class="sec" style="background:var(--brand-deep);position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.04) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;"></div>
+  <div class="wrap" style="position:relative;z-index:1;">
+    <span class="eyebrow light">Picture Your Life at Savia Parkway</span>
+    <h2 class="sec-title light">The Life That <em>Awaits You</em></h2>
+    <div class="rule light"></div>
+    <p class="lead light">Close your eyes for a moment and imagine…</p>
+    <div class="vision-list">
+      <div class="vision-item"><div class="vision-em">🌅</div><p>You wake up to the sound of birds rather than traffic. Your morning begins with a quiet walk along a tree-lined path inside your own community — coffee in hand, the day's pressures far away.</p></div>
+      <div class="vision-item"><div class="vision-em">💰</div><p>You reserved at pre-selling price — ₱3.5M. By the time you receive your keys, the market has valued your property significantly higher. Your investment is already working, even before you move in.</p></div>
+      <div class="vision-item"><div class="vision-em">👨‍👩‍👧‍👦</div><p>Your children run freely to the playground just steps from your door. Your partner joins a morning yoga session in the wellness park. Your dog has her own park. Every member of your family has a space they love.</p></div>
+      <div class="vision-item"><div class="vision-em">🏠</div><p>Every monthly payment builds something permanently yours — an asset that grows in value, a legacy for your family, a chapter of life you will always look back on with deep satisfaction.</p></div>
+    </div>
+    <div style="text-align:center;margin-top:48px;">
+      <p style="font-family:'Poppins',sans-serif;font-size:15px;font-style:italic;color:rgba(255,255,255,0.55);margin-bottom:26px;font-weight:300;">This life is not out of reach. It begins with a single reservation.</p>
+      <a href="#" onclick="openModal(event)" class="btn-primary">I'm Ready — Show Me How</a>
+    </div>
+  </div>
+</section>
+
+<!-- DEVELOPER -->
+<section class="sec" style="background:var(--white);">
+  <div class="wrap">
+    <span class="eyebrow">The Developer</span>
+    <h2 class="sec-title">Built by a <em>Developer You Can Trust</em></h2>
+    <div class="rule"></div>
+    <p class="lead">Savia Parkway is developed by <strong>650 Homes</strong> — a developer with a proven track record of delivering quality residential communities in Cavite, including the sold-out Pleasant Fields.</p>
+    <div style="margin-top:36px;background:var(--cream);border-radius:14px;padding:32px 28px;border:1px solid rgba(46,86,51,0.1);">
+      <div style="display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--cream-dark);">
+        <div style="width:60px;height:60px;background:var(--brand);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span style="font-size:28px;">🏗️</span></div>
+        <div>
+          <div style="font-family:'Montserrat',sans-serif;font-size:16px;font-weight:800;color:var(--brand-deep);margin-bottom:3px;">650 Homes</div>
+          <div style="font-family:'Montserrat',sans-serif;font-size:9px;font-weight:600;color:var(--text-light);letter-spacing:2px;text-transform:uppercase;">Tanza, Cavite · Philippine Real Estate</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <div style="display:flex;align-items:flex-start;gap:14px;"><span style="font-size:20px;flex-shrink:0;">✅</span><div><div style="font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:var(--brand-deep);margin-bottom:3px;">Proven Track Record — Pleasant Fields Sold Out</div><p style="font-size:13px;color:var(--text-mid);line-height:1.65;font-weight:300;">650 Homes successfully sold out Pleasant Fields, their previous 2.7-hectare, 237-unit community in Tanza. Savia Parkway is their next — and biggest — chapter.</p></div></div>
+        <div style="display:flex;align-items:flex-start;gap:14px;"><span style="font-size:20px;flex-shrink:0;">📋</span><div><div style="font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:var(--brand-deep);margin-bottom:3px;">License to Sell — Expected 2026</div><p style="font-size:13px;color:var(--text-mid);line-height:1.65;font-weight:300;">The License to Sell (LTS) is expected to be issued in early 2026. All materials provided are for orientation purposes. Full documentation and permits will be shared upon LTS release.</p></div></div>
+        <div style="display:flex;align-items:flex-start;gap:14px;"><span style="font-size:20px;flex-shrink:0;">🏆</span><div><div style="font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:var(--brand-deep);margin-bottom:3px;">ALAW International Architecture Partner</div><p style="font-size:13px;color:var(--text-mid);line-height:1.65;font-weight:300;">Designed in partnership with ALAW, an award-winning architecture and interior design firm based in New York — bringing global design standards to every home and community space.</p></div></div>
+        <div style="display:flex;align-items:flex-start;gap:14px;"><span style="font-size:20px;flex-shrink:0;">🤝</span><div><div style="font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:var(--brand-deep);margin-bottom:3px;">Sold Through Licensed Brokers Only</div><p style="font-size:13px;color:var(--text-mid);line-height:1.65;font-weight:300;">All sales are conducted through accredited, licensed real estate brokers — ensuring every buyer receives professional, ethical guidance and full legal documentation at every step.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BROKER -->
+<section class="sec" style="background:var(--cream);">
+  <div class="wrap">
+    <span class="eyebrow">Your Trusted Advisor</span>
+    <h2 class="sec-title">Meet Your <em>Personal Real Estate Broker</em></h2>
+    <div class="rule"></div>
+    <div class="broker-card">
+      <div class="broker-top">
+        <img src="https://d1yei2z3i6k35z.cloudfront.net/16484052/699c1cceefb63_sir.jpg" alt="Mr. Gabriel V. Libacao" class="broker-avatar"/>
+        <div class="broker-name">Mr. Gabriel V. Libacao</div>
+        <div class="broker-title">Licensed Real Estate Broker · Founder, Inner SPARC Realty Corporation</div>
+      </div>
+      <div class="broker-body">
+        <blockquote class="broker-quote">"My commitment to you is simple: I will guide you through every step of this journey — from your first question to the moment you receive your keys. Your dream of owning the right home, in the right community, at the right price is achievable. Let me show you how."</blockquote>
+        <div class="broker-creds">
+          <div class="broker-cred"><span class="cred-num">1,500+</span><span class="cred-label">Units Sold</span></div>
+          <div class="broker-cred"><span class="cred-num">4,600+</span><span class="cred-label">Happy Clients</span></div>
+          <div class="broker-cred"><span class="cred-num">1,200+</span><span class="cred-label">Listed Properties</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" style="background:var(--white);">
+  <div class="wrap">
+    <span class="eyebrow">Have Questions?</span>
+    <h2 class="sec-title">Frequently Asked <em>Questions</em></h2>
+    <div class="rule"></div>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)"><span class="q">Who is the developer of Savia Parkway?</span><span class="arr">▾</span></button><div class="faq-answer"><p>Savia Parkway is developed by 650 Homes — the same developer behind the sold-out Pleasant Fields community in Tanza, Cavite. The License to Sell (LTS) is expected in early 2026. All sales are handled by licensed brokers, with complete documentation available upon request.</p></div></div>
+      <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)"><span class="q">How many house models are available? What are the types?</span><span class="arr">▾</span></button><div class="faq-answer"><p>Savia Parkway offers 6 house models: three carry-over models with trellis upgrades (Narra, Kamagong, Lauan) and three exciting new additions (Acacia, Banaba, Dao). Floor areas range from 46 sqm to 92 sqm, with 2 to 3+ bedrooms. All are townhouse units.</p></div></div>
+      <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)"><span class="q">What is the starting price and how does payment work?</span><span class="arr">▾</span></button><div class="faq-answer"><p>Prices start at ₱3.5M. The standard payment structure is 10% down payment and 90% through bank financing (BPI, BDO, Landbank, or RCBC) for up to 30 years. A fast-turnover 3-month DP option is available. Select units also have up to 5% DP discount. Contact our broker for a personalized sample computation.</p></div></div>
+      <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)"><span class="q">What is pre-selling and why is it the best time to buy?</span><span class="arr">▾</span></button><div class="faq-answer"><p>Pre-selling means purchasing at the lowest price the property will ever be offered — before construction is complete. As the community takes shape, market value rises. Buyers who enter at pre-selling consistently see the greatest appreciation and enjoy the widest selection of lots and units.</p></div></div>
+      <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)"><span class="q">What amenities does Savia Parkway have?</span><span class="arr">▾</span></button><div class="faq-answer"><p>Savia Parkway features 10 amenities: a gated RFID entrance with 16-meter boulevard, community hall, great lawn, three courtyard parks, pickleball court, wellness &amp; yoga park, dog park, children's playground, toddler playground, sandbox &amp; playground park, and a community service center (laundry, water refilling, convenience store).</p></div></div>
+      <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)"><span class="q">Can I visit a model house before reserving?</span><span class="arr">▾</span></button><div class="faq-answer"><p>Yes. Model houses for Savia Parkway's three carry-over unit types (Narra, Kamagong, Lauan) are initially viewable at the Pleasant Fields site, which is just 1.2 km away. Our broker can arrange a tripping with pick-up and drop-off for you and your guests. Contact us to schedule your site visit.</p></div></div>
+      <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)"><span class="q">Is Savia Parkway good for rental income or investment?</span><span class="arr">▾</span></button><div class="faq-answer"><p>Absolutely. The Banaba model specifically features a separate ground-floor room with its own entrance and toilet &amp; bath — designed for rental purposes or multigenerational living. Additionally, all pre-selling buyers benefit from property appreciation as the community develops. Strong rental demand from Cavite's growing professional population makes this an attractive income asset.</p></div></div>
+      <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)"><span class="q">What makes Savia Parkway different from other Cavite subdivisions?</span><span class="arr">▾</span></button><div class="faq-answer"><p>Savia Parkway stands out through its low density (only 236 homes on 3.4 hectares), Filipino Modern Tropical design by international firm ALAW, 10 curated amenities including a pickleball court, dog park, and yoga park, a 16-meter boulevard, RFID-gated entry, and a location just 120 meters from the main highway. Very few subdivisions in Cavite offer this combination of space, design quality, and amenities at this price point.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="final-cta-inner">
+    <span class="eyebrow light" style="margin-bottom:16px;">The Decision That Changes Everything</span>
+    <h2>Secure Your Place in<br/><em>Savia Parkway</em> — Today.</h2>
+    <p>Only 236 homes. Pre-selling prices starting at ₱3.5M. Filipino Modern Tropical design by an award-winning New York firm. 10 world-class amenities. One of the most accessible communities in Tanza, Cavite. Begin with a free, no-obligation consultation.</p>
+    <a href="#" onclick="openModal(event)" class="btn-primary" style="font-size:12px;padding:20px 52px;">Reserve My Home Today</a>
+    <p class="final-note">Free consultation · No pressure · Your information is completely private</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo">SAVIA PARKWAY</div>
+  <div class="footer-tagline">Filipino Modern Tropical Living in Tanza, Cavite</div>
+  <p>📞 0917-853-4875 (Globe / TM)</p>
+  <p>Inner SPARC Realty Corporation</p>
+  <div class="footer-rule"></div>
+  <p style="font-size:12px;color:rgba(255,255,255,0.25);">Blk 26 Lot 4 Phase 3, Avida Residences Sta. Catalina,<br/>Brgy. Salawag, Dasmariñas, Cavite, Philippines</p>
+  <p class="footer-copy">© 2026 Inner SPARC Realty Corporation · All rights reserved</p>
+</footer>
+
+<!-- MODAL -->
+<div id="register-modal">
+  <div class="modal-box">
+    <div class="modal-header" id="modal-header">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div class="tag">Free · No Obligation · Confidential</div>
+      <h2>Request a Free<br/>Consultation</h2>
+      <p>Our licensed broker will reach out<br/>within 24 hours. No pressure, ever.</p>
+    </div>
+    <div class="modal-body" id="modal-form-body">
+      <div class="modal-error" id="modal-error">⚠️ Something went wrong. Please try again.</div>
+      <div class="modal-field"><label>Full Name *</label><input type="text" id="modal-name" placeholder="Your full name"/></div>
+      <div class="modal-field"><label>Email Address *</label><input type="email" id="modal-email" placeholder="your@email.com"/></div>
+      <div class="modal-field"><label>Mobile Number (optional)</label><input type="tel" id="modal-phone" placeholder="09XX XXX XXXX"/></div>
+      <button class="modal-submit" id="modal-submit-btn" onclick="submitModal()">Request Free Consultation</button>
+      <p class="modal-note">We respect your privacy. Your information is never shared or sold.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openModal(e) { if(e)e.preventDefault(); document.getElementById('register-modal').classList.add('open'); document.body.style.overflow='hidden'; }
+  function closeModal() {
+    document.getElementById('register-modal').classList.remove('open'); document.body.style.overflow='';
+    setTimeout(function(){
+      document.getElementById('modal-form-body').style.display='';
+      document.getElementById('modal-header').style.display='';
+      document.getElementById('modal-error').style.display='none';
+      document.getElementById('modal-name').value='';
+      document.getElementById('modal-email').value='';
+      document.getElementById('modal-phone').value='';
+      document.getElementById('modal-name').style.borderColor='';
+      document.getElementById('modal-email').style.borderColor='';
+      document.getElementById('modal-submit-btn').disabled=false;
+      document.getElementById('modal-submit-btn').textContent='Request Free Consultation';
+    },300);
+  }
+  async function submitModal() {
+    var nameEl=document.getElementById('modal-name'),emailEl=document.getElementById('modal-email'),phoneEl=document.getElementById('modal-phone'),errorEl=document.getElementById('modal-error'),btn=document.getElementById('modal-submit-btn');
+    var name=nameEl.value.trim(),email=emailEl.value.trim(),phone=phoneEl.value.trim();
+    nameEl.style.borderColor=''; emailEl.style.borderColor=''; errorEl.style.display='none';
+    if(!name){nameEl.style.borderColor='#e05a5a';nameEl.focus();return;}
+    if(!email||!email.includes('@')){emailEl.style.borderColor='#e05a5a';emailEl.focus();return;}
+    btn.disabled=true; btn.textContent='Sending…';
+    var parts=name.split(' '),firstName=parts[0],lastName=parts.slice(1).join(' ')||'';
+    try {
+      var response=await fetch('/.netlify/functions/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,firstName,lastName,phone})});
+      var data=await response.json();
+      if(response.ok&&data.ok){window.location.href='/thank-you.html?name='+encodeURIComponent(firstName);}
+      else{throw new Error(data.error||'API error');}
+    } catch(err) {
+      errorEl.textContent='⚠️ Something went wrong. Please try again or call us at 0917-853-4875.';
+      errorEl.style.display='block'; btn.disabled=false; btn.textContent='Request Free Consultation';
+    }
+  }
+  document.getElementById('register-modal').addEventListener('click',function(e){if(e.target===this)closeModal();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+  function toggleFaq(btn){
+    var answer=btn.nextElementSibling,arrow=btn.querySelector('.arr'),open=answer.style.display==='block';
+    answer.style.display=open?'none':'block'; arrow.style.transform=open?'rotate(0deg)':'rotate(180deg)';
+  }
+</script>
+</body>
+</html>
