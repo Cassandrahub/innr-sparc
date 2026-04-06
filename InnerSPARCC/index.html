@@ -377,7 +377,7 @@
     .brand-reveal p { font-size:15px; color:rgba(255,255,255,0.7); line-height:1.9; font-weight:300; margin-bottom:14px; }
 
     /* ── UPDATED PILLARS GRID ── */
-    .pillars-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:36px; }
+    .pillars-grid { display:grid; grid-template-columns:1fr; gap:10px; margin-top:36px; }
     .pillar-item {
       background:rgba(255,255,255,0.07);
       border:1px solid rgba(255,255,255,0.12);
@@ -394,7 +394,7 @@
     }
     .pillar-img-wrap {
     width: 100%;
-    height: 220px; /* was 160px — increase to show more of the image */
+    height: 180px;
     overflow: hidden;
     background: rgba(255,255,255,0.05);
     flex-shrink: 0;
@@ -404,12 +404,12 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center top; /* added — keeps subject visible, not cropped */
+    object-position: center;
     display: block;
     transition: transform 0.5s ease;
     }
 
-    .pillar-item:hover .pillar-img { transform:scale(1.06); }
+    .pillar-item:hover .pillar-img { transform:scale(1.02); }
     .pillar-name {
       font-family:'Montserrat',sans-serif;
       font-size:11px;
@@ -451,7 +451,7 @@
     /* ── HIGHLIGHT ITEMS WITH IMAGE ON TOP ── */
     .highlight-list {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 16px;
       margin-top: 32px;
     }
@@ -522,8 +522,8 @@
     .model-header-tag { font-family:'Montserrat',sans-serif; font-size:8px; font-weight:700; color:rgba(255,255,255,0.65); letter-spacing:1.5px; text-transform:uppercase; background:rgba(255,255,255,0.1); padding:4px 10px; border-radius:100px; }
 
     /* HOUSE MODEL IMAGES */
-    .model-img-wrap { width:100%; background:var(--cream); border-bottom:1px solid rgba(46,86,51,0.08); display:flex; align-items:center; justify-content:center; padding:20px 20px 14px; overflow:hidden; }
-    .model-img-wrap img { width:100%; height:auto; max-height:260px; object-fit:contain; display:block; transition:transform 0.4s ease; }
+    .model-img-wrap { width:100%; height:320px; background:var(--cream); border-bottom:1px solid rgba(46,86,51,0.08); overflow:hidden; }
+    .model-img-wrap img { width:100%; height:100%; object-fit:cover; object-position:center center; display:block; transition:transform 0.4s ease; }
     .model-card:hover .model-img-wrap img { transform:scale(1.02); }
     .model-no-img { width:100%; padding:32px 20px 24px; background:linear-gradient(135deg,var(--cream) 0%,var(--cream-dark) 100%); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:10px; border-bottom:1px solid rgba(46,86,51,0.08); }
     .model-no-img .mni-icon { font-size:44px; }
@@ -540,7 +540,7 @@
   .finishes-grid {
     margin-top: 36px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 10px;
   }
 
@@ -862,7 +862,7 @@
     <p class="video-subtitle">Watch our official community video and picture yourself living here.</p>
     <div class="video-frame">
       <video controls playsinline preload="metadata" poster="">
-        <source src="SaviaFB.mp4" type="video/mp4"/>
+        <source src="ads/UmaniSavia Fb Ads.mp4" type="video/mp4"/>
         Your browser does not support the video tag.
       </video>
     </div>
@@ -952,7 +952,7 @@
     <div class="pillars-grid">
       <div class="pillar-item">
         <div class="pillar-img-wrap">
-          <img src="thoughful.jpg" alt="Thoughtful Design" class="pillar-img" onerror="this.style.display='none'"/>
+          <img src="archi.jpg" alt="Thoughtful Design" class="pillar-img" onerror="this.style.display='none'"/>
         </div>
         <div class="pillar-name">Thoughtful Design</div>
         <div class="pillar-desc">Every detail — from walkable paths to pocket gardens — was carefully planned with ALAW, an award-winning New York architecture firm.</div>
@@ -1023,7 +1023,7 @@
 
       <div class="highlight-item">
         <div class="hi-img-wrap">
-          <img src="Dao.png" alt="Filipino Modern Tropical Theme" class="hi-img" onerror="this.style.display='none'"/>
+          <img src="Dao.png" alt="Filipino Modern Tropical Theme" class="hi-img" style="object-position:center 68%;" onerror="this.style.display='none'"/>
         </div>
         <div class="hi-text">
           <h3>Filipino Modern Tropical Theme</h3>
@@ -1033,7 +1033,7 @@
 
       <div class="highlight-item">
         <div class="hi-img-wrap">
-          <img src="payment.png" alt="Flexible Payment Terms" class="hi-img" onerror="this.style.display='none'"/>
+          <img src="payment.png" alt="Flexible Payment Terms" class="hi-img" style="object-position:center 65%;" onerror="this.style.display='none'"/>
         </div>
         <div class="hi-text">
           <h3>Flexible Payment Terms</h3>
@@ -1312,7 +1312,7 @@
 
       <div class="finish-item">
         <div class="finish-img-wrap">
-          <img src="wall.jpeg" alt="Walls & Ceiling" class="finish-img" onerror="this.style.display='none'"/>
+          <img src="wall.jpeg" alt="Walls & Ceiling" class="finish-img"  onerror="this.style.display='none'"/>
         </div>
         <div class="finish-body">
           <div class="finish-name">Walls &amp; Ceiling</div>
@@ -1322,7 +1322,7 @@
 
       <div class="finish-item">
         <div class="finish-img-wrap">
-          <img src="tiled.jpeg" alt="Flooring" class="finish-img" onerror="this.style.display='none'"/>
+          <img src="tiled.jpeg" alt="Flooring" class="finish-img" style="object-position:center 62%;" onerror="this.style.display='none'"/>
         </div>
         <div class="finish-body">
           <div class="finish-name">Flooring</div>
