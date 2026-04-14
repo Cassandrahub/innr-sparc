@@ -362,7 +362,7 @@
     .compare-header div:first-child { text-align:left; }
     .compare-row { display:grid; grid-template-columns:1fr 1fr 1fr; border-top:1px solid rgba(46,86,51,0.1); background:var(--white); transition:background 0.15s; }
     .compare-row:hover { background:rgba(46,86,51,0.04); }
-    .compare-row div { padding:13px 16px; font-size:13px; color:var(--text-mid); font-weight:300; text-align:center; line-height:1.5; }
+    .compare-row div { padding:13px 16px; font-size:20px; color:var(--text-mid); font-weight:300; text-align:center; line-height:1.5; }
     .compare-row div:first-child { font-family:'Montserrat',sans-serif; font-size:11px; font-weight:700; color:var(--text); text-align:left; text-transform:uppercase; letter-spacing:0.5px; }
     .compare-row div.highlight { color:var(--brand); font-weight:600; }
 
@@ -403,7 +403,7 @@
     .brand-label { font-family:'Montserrat',sans-serif; font-size:15px; font-weight:700; letter-spacing:3.5px; text-transform:uppercase; color:#2e5633; display:block; margin-bottom:18px; }
     .big-name { font-family:'Montserrat',sans-serif; font-size:clamp(60px,15vw,96px); font-weight:900; color:#2e5633; letter-spacing:15px; line-height:1; margin-bottom:4px; }
     .parkway-word { font-family:'Montserrat',sans-serif; font-size:20px; font-weight:700; letter-spacing:10px; color:#2e5633; margin-bottom:14px; }
-    .brand-tagline { font-family:'Poppins',sans-serif; font-size:19px; font-weight:300; color:#ffffff; margin-bottom:28px; }
+    .brand-tagline { font-family:'Poppins',sans-serif; font-size:px; font-weight:300; color:#ffffff; margin-bottom:28px; }
     .brand-rule { width:48px; height:3px; background:rgba(255,255,255,0.3); border-radius:2px; margin:0 auto 28px; }
     .brand-reveal p { font-size:25px; color:#2e5633; line-height:1.9; font-weight:300; margin-bottom:14px; }
 
@@ -686,14 +686,14 @@
 
   .finish-name {
     font-family: 'Montserrat', sans-serif;
-    font-size: 11px;
+    font-size: 15px;
     font-weight: 700;
     color: var(--brand-deep);
     margin-bottom: 4px;
   }
 
   .finish-desc {
-    font-size: 12px;
+    font-size: 14px;
     color: var(--text-mid);
     line-height: 1.6;
     font-weight: 300;
@@ -778,14 +778,14 @@
 
     .why-item h3 {
       font-family: 'Montserrat', sans-serif;
-      font-size: 16px;
+      font-size: 25px;
       font-weight: 700;
       color: var(--brand-deep);
       margin-bottom: 8px;
     }
 
     .why-item p {
-      font-size: 16px;
+      font-size: 20px;
       color: var(--text-mid);
       line-height: 1.85;
       font-weight: 300;
@@ -797,7 +797,7 @@
       background: rgba(46,86,51,0.08);
       color: var(--brand);
       font-family: 'Montserrat', sans-serif;
-      font-size: 9px;
+      font-size: 14px;
       font-weight: 700;
       letter-spacing: 1.5px;
       text-transform: uppercase;
@@ -854,7 +854,7 @@
 
     .vision-item p {
       font-family: 'Poppins', sans-serif;
-      font-size: 15px;
+      font-size: 20px;
       font-weight: 300;
       color: var(--text-mid);
       line-height: 1.75;
@@ -994,7 +994,7 @@
 
     <div class="pain-list">
       <div class="pain-image-block">
-        <img src="homes.jpg" alt="Homes too close together" loading="lazy"/>
+        <img src="tight.jpg" alt="Homes too close together" loading="lazy"/>
       </div>
         
         <div class="pain-text">
@@ -1045,6 +1045,14 @@
     <h2 class="sec-title">More Than a Name —<br/><em>A Promise</em></h2>
     <div class="rule"></div>
     <div class="intro-body">
+      <div style="text-align:center; margin-bottom:20px;">
+        <img
+          src="name.jpg"
+          alt="Savia Parkway name and design inspiration"
+          style="width:min(100%, 980px); height:auto; border-radius:12px; display:block; margin:0 auto;"
+          onerror="this.style.display='none'"
+        />
+      </div>
       <p>Every detail of Savia Parkway — from its name to its design — was chosen with intention. "Savia" is an Arabic-Latin word meaning <strong>she is beautiful</strong>. "Parkway" reflects its abundance of parks and walkable spaces throughout the community.</p>
       <div class="name-meaning">
         <div class="name-meaning-inner">
@@ -1062,7 +1070,23 @@
           </div>
         </div>
       </div><br><br>
-      <p style="margin-top:24px;">Designed by <strong>ALAO</strong> — an award-winning international architecture and interior design firm based in New York — every home and shared space at Savia reflects a partnership between global design excellence and Filipino identity.</p>
+        <div style="text-align:center; margin-bottom:20px;">
+          <img
+            src="alao.png"
+            alt="ALAO architecture and interior design"
+            style="width:min(100%, 980px); height:auto; border-radius:12px; display:block; margin:0 auto;"
+            onerror="this.style.display='none'"
+          />
+        </div>
+      <p style="margin-top:24px;">Designed by <strong>ALAO</strong> — an award-winning international architecture and interior design firm based in New York — every home and shared space at Savia reflects a partnership between global design excellence and Filipino identity.</p><br><br>
+      <div style="text-align:center; margin:18px 0 14px;">
+        <img
+          src="alaos.jpg"
+          alt="ALAO design quote visual"
+          style="width:min(100%, 760px); height:auto; border-radius:12px; display:block; margin:0 auto;"
+          onerror="this.style.display='none'"
+        />
+      </div>
       <div class="quote-block">
         <p>we envision a future where architecture profoundly connects with the human experience, blending beauty and precision through an intricate and thoughtful design process.</p>
         <footer>— ALAO Architects</footer>
@@ -1098,7 +1122,7 @@
       <div class="compare-row"><div>Trellis on Units</div><div>No</div><div class="highlight">Yes — all units</div></div>
     </div>
     <div style="margin-top:16px;border-radius:10px;padding:16px 20px;text-align:center;">
-      <p style="font-size:17px;color:#ffffff;font-weight:400;line-height:1.7;">Savia Parkway is located just <strong style="color:#ffffff;">1.2 km away</strong> from Pleasant Fields — a 3 to 5 minute drive. Model houses for Savia will initially be viewable at the Pleasant Fields site.</p>
+      <p style="font-size:20px;color:#ffffff;font-weight:400;line-height:1.7;">Savia Parkway is located just <strong style="color:#ffffff;">1.2 km away</strong> from Pleasant Fields — a 3 to 5 minute drive. Model houses for Savia will initially be viewable at the Pleasant Fields site.</p>
     </div>
   </div>
 </section>
@@ -1147,7 +1171,7 @@
 
       <div class="pillar-item">
         <div class="pillar-img-wrap">
-          <img src="lowdenss.png" alt="Greenery &amp; Community" class="pillar-img" onerror="this.style.display='none'"/>
+          <img src="green.jpg" alt="Greenery &amp; Community" class="pillar-img" onerror="this.style.display='none'"/>
         </div>
         <div class="pillar-name">Greenery &amp; Community</div>
         <div class="pillar-desc"><b>Low density planning creates more open spaces, landscaped parks, and shared areas for residents to enjoy. These thoughtfully designed green spaces encourage outdoor activities, relaxation, and stronger community connections.</b></div>
@@ -1166,19 +1190,11 @@
     <p class="lead">Let me walk you through the things that actually matter — the stuff that makes Savia Parkway stand out from other subdivisions in the area.</p>
     <div class="highlight-list"><br>
 
-      <div class="highlight-item">
-        <div class="hi-img-wrap">
-          <img src="lowdenss.png" alt="Low-Density Community" class="hi-img" onerror="this.style.display='none'"/>
-        </div>
-        <div class="hi-text">
-          <h3>Low-Density — Only 236 Homes on 3.4 Hectares</h3>
-          <p><b>Fewer homes spread across more land create wider lots, quieter streets, and more open spaces. This low-density layout promotes better privacy, improved airflow, and a more relaxed community atmosphere — a rare offering in Cavite.</b></p>
-        </div>
-      </div><br><br>
+      
 
       <div class="highlight-item">
         <div class="hi-img-wrap">
-          <img src="road.jpg" alt="16-Meter Wide Boulevard" class="hi-img" onerror="this.style.display='none'"/>
+          <img src="roadd.jpg" alt="16-Meter Wide Boulevard" class="hi-img" onerror="this.style.display='none'"/>
         </div>
         <div class="hi-text">
           <h3>16-Meter Wide Boulevard</h3>
@@ -1475,7 +1491,7 @@
 
     <br><br><br>
     <div style="margin-top:36px;width:calc(100% + 160px);margin-left:-80px;margin-right:-80px;">
-    <div style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--brand);text-align:center;margin-bottom:20px;">Standard House Finishes — All Models</div>
+    <div style="font-family:'Montserrat',sans-serif;font-size:20px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--brand);text-align:center;margin-bottom:20px;">Standard House Finishes — All Models</div>
     <div class="finishes-grid">
 
       <div class="finish-item">
@@ -1681,7 +1697,7 @@
 
       <div class="why-item">
         <div class="why-img-wrap">
-          <img src="lowdenss.png" alt="Low-Density Community" class="why-img" onerror="this.style.display='none'"/>
+          <img src="saviahero.jpg" alt="Low-Density Community" class="why-img" onerror="this.style.display='none'"/>
         </div>
         <div class="why-body">
           <div class="why-num">03</div>
@@ -1730,7 +1746,7 @@
 
       <div class="vision-item">
         <div class="vision-img-wrap">
-          <img src="lowdenss.png" alt="Morning at Savia" class="vision-img" onerror="this.style.display='none'"/>
+          <img src="imaginee.jpg" alt="Morning at Savia" class="vision-img" onerror="this.style.display='none'"/>
         </div>
         <div class="vision-body">
           <p>You wake up to the sound of birds rather than traffic. Your morning begins with a quiet walk along a tree-lined path inside your own community — coffee in hand, the day's pressures far away.</p>
@@ -1748,7 +1764,7 @@
 
       <div class="vision-item">
         <div class="vision-img-wrap">
-          <img src="park.png" alt="Family Life" class="vision-img" onerror="this.style.display='none'"/>
+          <img src="playy.jpg" alt="Family Life" class="vision-img" onerror="this.style.display='none'"/>
         </div>
         <div class="vision-body">
           <p>Your children run freely to the playground just steps from your door. Your partner joins a morning yoga session in the wellness park. Your dog has her own park. Every member of your family has a space they love.</p>
@@ -1788,10 +1804,10 @@
         <img src="mike.jpg" alt="650 Homes representative" style="width:84px;height:84px;border-radius:50%;object-fit:cover;object-position:center top;flex-shrink:0;border:3px solid var(--white);box-shadow:0 6px 18px rgba(0,0,0,0.12);background:#fff;" onerror="this.style.display='none'"/>
       </div>
       <div style="display:flex;flex-direction:column;gap:14px;">
-        <div style="display:flex;flex-direction:column;align-items:center;gap:10px;"><img src="pleasant.jpg " alt="Sold out" style="width:960px;height:520px;object-fit:cover;border-radius:10px;flex-shrink:0;margin-top:1px;" onerror="this.style.display='none'"/><div style="width:100%;"><div style="font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;color:var(--white);margin-bottom:5px;">Proven Track Record — Pleasant Fields Sold Out</div><p style="font-size:16px;color:rgba(255,255,255,0.85);line-height:1.75;font-weight:400;">650 Homes successfully sold out Pleasant Fields, their previous 2.7-hectare, 237-unit community in Tanza. Savia Parkway is their next — and biggest — chapter.</p></div></div><br>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:10px;"><img src="lts.jpg" alt="License to Sell" style="width:960px;height:520px;object-fit:contain;border-radius:10px;flex-shrink:0;margin-top:1px;background:#fff;" onerror="this.style.display='none'"/><div style="width:100%;"><div style="font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;color:var(--white);margin-bottom:5px;">License to Sell — Expected 2026</div><p style="font-size:16px;color:rgba(255,255,255,0.85);line-height:1.75;font-weight:400;">The License to Sell (LTS) is expected to be issued in early 2026. All materials provided are for orientation purposes. Full documentation and permits will be shared upon LTS release.</p></div></div><br>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:10px;"><img src="alao.png" alt="Architecture partner" style="width:960px;height:520px;object-fit:cover;border-radius:10px;flex-shrink:0;margin-top:1px;" onerror="this.style.display='none'"/><div style="width:100%;"><div style="font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;color:var(--white);margin-bottom:5px;">ALAO International Architecture Partner</div><p style="font-size:16px;color:rgba(255,255,255,0.85);line-height:1.75;font-weight:400;">Designed in partnership with ALAO, an award-winning architecture and interior design firm based in New York — bringing global design standards to every home and community space.</p></div></div><br>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:10px;"><img src="broker.jpg" alt="Licensed broker guidance" style="width:960px;height:520px;object-fit:cover;border-radius:10px;flex-shrink:0;margin-top:1px;" onerror="this.style.display='none'"/><div style="width:100%;"><div style="font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;color:var(--white);margin-bottom:5px;">Sold Through Licensed Brokers Only</div><p style="font-size:16px;color:rgba(255,255,255,0.85);line-height:1.75;font-weight:400;">All sales are conducted through accredited, licensed real estate brokers — ensuring every buyer receives professional, ethical guidance and full legal documentation at every step.</p></div></div><br>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:10px;"><img src="pleasant.jpg " alt="Sold out" style="width:960px;height:520px;object-fit:cover;border-radius:10px;flex-shrink:0;margin-top:1px;"  onerror="this.style.display='none'"/><div style="width:100%;"><div style="font-family:'Montserrat',sans-serif;font-size:20px;font-weight:700;color:var(--white);margin-bottom:5px;">Proven Track Record — Pleasant Fields Sold Out</div><p style="font-size:20px;color:rgba(255,255,255,0.85);line-height:1.75;font-weight:400;">650 Homes successfully sold out Pleasant Fields, their previous 2.7-hectare, 237-unit community in Tanza. Savia Parkway is their next — and biggest — chapter.</p></div></div><br>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:10px;"><img src="lts.jpg" alt="License to Sell" style="width:960px;height:520px;object-fit:contain;border-radius:10px;flex-shrink:0;margin-top:1px;background:#fff;" onerror="this.style.display='none'"/><div style="width:100%;"><div style="font-family:'Montserrat',sans-serif;font-size:20px;font-weight:700;color:var(--white);margin-bottom:5px;">License to Sell — Expected 2026</div><p style="font-size:20px;color:rgba(255,255,255,0.85);line-height:1.75;font-weight:400;">The License to Sell (LTS) is expected to be issued in early 2026. All materials provided are for orientation purposes. Full documentation and permits will be shared upon LTS release.</p></div></div><br>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:10px;"><img src="alao.png" alt="Architecture partner" style="width:960px;height:520px;object-fit:cover;border-radius:10px;flex-shrink:0;margin-top:1px;" onerror="this.style.display='none'"/><div style="width:100%;"><div style="font-family:'Montserrat',sans-serif;font-size:20px;font-weight:700;color:var(--white);margin-bottom:5px;">ALAO International Architecture Partner</div><p style="font-size:20px;color:rgba(255,255,255,0.85);line-height:1.75;font-weight:400;">Designed in partnership with ALAO, an award-winning architecture and interior design firm based in New York — bringing global design standards to every home and community space.</p></div></div><br>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:10px;"><img src="brokerr.jpg" alt="Licensed broker guidance" style="width:960px;height:520px;object-fit:cover;border-radius:10px;flex-shrink:0;margin-top:1px;" style="object-position:center 80%;" onerror="this.style.display='none'"/><div style="width:100%;"><div style="font-family:'Montserrat',sans-serif;font-size:20px;font-weight:700;color:var(--white);margin-bottom:5px;">Sold Through Licensed Brokers Only</div><p style="font-size:20px;color:rgba(255,255,255,0.85);line-height:1.75;font-weight:400;">All sales are conducted through accredited, licensed real estate brokers — ensuring every buyer receives professional, ethical guidance and full legal documentation at every step.</p></div></div><br>
       </div>
     </div>
   </div>
